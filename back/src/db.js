@@ -1,11 +1,11 @@
 var mysql = require('mysql')
 
-var connection = mysql.createConnection({
+var db = mysql.createConnection({
   host: 'localhost',
-  user: 'root',
-  password: 'm777',
+  user: 'elieazar',
+  password: 'mostafa',
   database: 'game'
 })
 
 
-export default connection ;
+export default db ;
