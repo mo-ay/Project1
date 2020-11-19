@@ -34,6 +34,7 @@ app.get('/', function (req, res) {
    })
      
 
+   
  app.get('/games/:searchInput', (req, res)=>{
   const searchInput=req.params.searchInput;
     db.query(`SELECT id AS id, name, rate, imagepath, releasdate, post FROM games 
@@ -52,22 +53,34 @@ app.get('/', function (req, res) {
  })
 
  //-------------------------------------//Game Card CRUD API//--------------------------//
-
+//-----------------------------------------------------------------//
+ //                 Read Game  -- Tested on POSTMAN                 //
+ //-----------------------------------------------------------------//
+ app.get('/game/:id', (req, res)=>{
+  const id=req.params.id;
+    db.query(`SELECT id AS id, name, rate, imagepath, releasdate, post FROM games 
+    WHERE id=${id}`
+    ,(err,rows)=>{
+          if (err) throw err;
+          res.send(rows)
+        });
+ })
  //-----------------------------------------------------------------//
  //                 Add Game  -- Tested on POSTMAN                  //
  //-----------------------------------------------------------------//
- app.post('/games', (req, res)=>{
-  var postData=req.body;                                            
+ app.post('/addgame', (req, res)=>{
+  var postData=req.body; 
+  console.log(postData);                                           
   db.query('INSERT INTO games SET ?',postData,(err,rows,fields)=>{
     if (err)throw err;
-    res.send(JSON.stringify(rows))
+    res.send(rows)
   });
  });
 
  //-----------------------------------------------------------------//
  //                 Remove Game -- Tested on POSTMAN                //
  //-----------------------------------------------------------------//
- app.delete('/games', (req, res)=>{
+ app.delete('/deletegame', (req, res)=>{
   console.log(req.body)                                            
   db.query('DELETE FROM games WHERE `id`=?',[req.body.id],(err,rows,fields)=>{
     if (err)throw err;
@@ -78,7 +91,7 @@ app.get('/', function (req, res) {
  //                 Update Game -- Tested on POSTMAN                //
  //-----------------------------------------------------------------//
 
- app.put('/games', (req, res)=>{
+ app.put('/updategame', (req, res)=>{
                                               
   db.query('UPDATE `games` SET `name`=?,`rate`=?,`imagepath`=?,`releasdate`=?,`post`=? WHERE `id`=?',
   [req.body.name, req.body.rate, req.body.imagepath, req.body.releasdate, req.body.post, req.body.id],
