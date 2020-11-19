@@ -10,7 +10,7 @@ class Search extends Component{
      searchFunction= async(e)=>{
            e.preventDefault();
            const searchInput= e.target.searchInput.value;
-           const url=`http://localhost:8001/search/${searchInput}`;
+           const url=`http://localhost:8001/games/${searchInput}`;
            const response=await fetch(url);
            const result=await response.json();
            //console.log(result);
@@ -31,7 +31,7 @@ class Search extends Component{
             
        </form>
        <ul>{this.state.game.map(g =>
-            <li>Name: {g.name} <br></br>Rating: {g.rate}<br></br>Image: {g.imagepath}<br></br>Release Date: {g.releasdate}<br></br>Blog: {g.post}</li>
+           <li key={g.toString} >Name: {g.name} <br></br>Rating: {g.rate}<br></br>Image: {g.imagepath}<br></br>Release Date: {g.releasdate}<br></br>Blog: {g.post}</li>
             
             )}
             </ul>
