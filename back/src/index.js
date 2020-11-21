@@ -133,5 +133,79 @@ app.get('/', function (req, res) {
 
 // })
  
+//******************Categories****************** */
+
+ //-----------------------------------------------------------------//
+ //                 Get all categories   -- Tested on POSTMAN                  //
+ //-----------------------------------------------------------------//
+app.get('/category',(req,res)=>{
+  db.query("SELECT * FROM category",(err,rows)=>{
+    try{
+      res.send(rows)
+    }
+    catch(err){
+      console.log(err);
+    }
+  })
+})
+
+
+ //-----------------------------------------------------------------//
+ //                 Get  categories by id  -- Tested on POSTMAN                  //
+ //-----------------------------------------------------------------//
+ app.get('/categoryid/:id',(req,res)=>{
+  const id=req.params.id;
+  db.query(`SELECT * FROM category WHERE id=${id} `,(err,rows)=>{
+    try{
+      res.send(rows)
+    }
+    catch(err){
+      console.log(err);
+    }
+  })
+})
+
+//-----------------------------------------------------------------//
+ //                Add  categories   -- Tested on POSTMAN                  //
+ //-----------------------------------------------------------------//
+ app.post('/addcategory',(req,res)=>{
+
+  const dataPost=req.body;
+  db.query(`INSERT INTO category SET ? `,dataPost,(err,rows,fields)=>{
+    if (err)throw err;
+    res.send(rows)
+  });
+ });
+
+
+ //-----------------------------------------------------------------//
+ //                Update categories   -- Tested on POSTMAN                  //
+ //-----------------------------------------------------------------//
+ app.put('/updatecategory', (req, res)=>{
+                                              
+  db.query('UPDATE `category` SET `categories`=? WHERE `id`=?',
+  [req.body.categories, req.body.id],
+  (err,rows,fields)=>{
+    if (err)throw err;
+    res.send(JSON.stringify(rows));
+  });
+ });
+ 
+
+
+//-----------------------------------------------------------------//
+ //                 Remove categories-- Tested on POSTMAN                //
+ //-----------------------------------------------------------------//
+ app.delete('/deletecategory', (req, res)=>{
+                                           
+  db.query('DELETE FROM category WHERE `id`=?',[req.body.id],(err,rows,fields)=>{
+    if (err)throw err;
+    res.send('Category  HAS BEEN DELETED');
+  });
+ });
+
+
+//******************Categories****************** */
+
 
 app.listen( 8001, () => console.log('server listening on port 8001') )
