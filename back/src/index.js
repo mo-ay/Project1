@@ -101,6 +101,37 @@ app.get('/', function (req, res) {
   });
  });
 //------------------------------------------------------------------------------------------------------// 
+/********************Admin routes  ***************************/
 
+ //-----------------------------------------------------------------//
+ //                 login check  -- Tested on POSTMAN               //
+ //-----------------------------------------------------------------//
+ app.post('/login',(req,res)=>{
+ 
+   var adminName = req.body.adminName
+    var adminPassword = req.body.adminPassword
+   
+   db.query(`SELECT username,password from admin WHERE 
+   username = '${adminName}' AND password = ${adminPassword}`, function (err, rows,fields) {
+     console.log(adminName + " " + adminPassword)
+    if(err) throw err
+    if (rows.length !== 0) {
+      console.log("pass")
+        res.status(200).send("ok")
+       
+      }
+    else {
+      console.log("no pass")
+      res.status(403).send("deny")
+       }
+ })
+})
+
+// app.get('/login',(req,res)=>{
+//   var path = require('../../front/src/components/admin/');
+// res.sendFile(path.resolve('login.js'));
+
+// })
+ 
 
 app.listen( 8001, () => console.log('server listening on port 8001') )
