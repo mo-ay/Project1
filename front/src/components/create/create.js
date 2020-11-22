@@ -6,7 +6,7 @@ state={
 }
 
 createFunction=async(e)=>{
-    e.preventDefault();
+    // e.preventDefault();
     const url="http://localhost:8001/addgame"
     const body={
         name:e.target.name.value,

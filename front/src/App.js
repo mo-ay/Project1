@@ -3,7 +3,7 @@ import React, {Component}from 'react'
 import './App.css';
 import Search from './components/search/search';
 import Create from './components/create/create'
-
+import Category from './components/categories/categories'
 class App extends Component {
   state={
     games:[]
@@ -17,6 +17,8 @@ class App extends Component {
    console.log(this.state.games)
     
   }
+  
+  
   render(){
 
     return (
@@ -24,6 +26,7 @@ class App extends Component {
        <h1> Hello Indie Bite</h1>
     <Search />
     <Create />
+    <Category />
        </div>
 
     )
