@@ -22,6 +22,9 @@ class Category extends Component{
     }
 
     createCategory =async(e)=>{
+
+        e.preventDefault();
+
         const url='http://localhost:8001/addcategory';
         const body={
             categories:e.target.categoryname.value}
@@ -31,6 +34,33 @@ class Category extends Component{
           },body:JSON.stringify(body)});
         const result=await response.json();
         console.log("elie")
+
+        this.componentDidMount();
+        e.target.categoryname.value="";
+
+    }
+   
+    // getId=async(e)=>{
+    // const  id=e.target.del.value;
+    //     const url=`http://localhost:8001/categoryid/${id}`;
+    //     console.log(id+"piza");
+    // }
+
+
+    removeCategory =async(x)=>{
+
+        const url='http://localhost:8001/deletecategory';
+        const body={
+            id:x
+        }
+        const response=await fetch(url,{method:'DELETE',headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },body:JSON.stringify(body)
+    });
+     this.componentDidMount();
+        }
+
 
     }
    
@@ -52,6 +82,7 @@ class Category extends Component{
 
 
 
+
     
     render(){
         return(
@@ -59,6 +90,11 @@ class Category extends Component{
                 <h1>categories</h1>
                 <div> </div>
                     <ul>
+
+             {this.state.category.map(cat=> <li key={cat.id}> {cat.categories} <span style={{color:"red",margin:"20px"}} onClick={()=>this.removeCategory(cat.id)} > 
+            X</span></li>,<br></br>)}
+            </ul>
+
         {this.state.category.map(cat=> 
             
             <li key={cat.id}> {cat.categories} 
