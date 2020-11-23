@@ -4,6 +4,9 @@ import './App.css';
 import Search from './components/search/search';
 import Create from './components/create/create'
 import Category from './components/categories/categories'
+import Card from './components/card/card'
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
 class App extends Component {
   state={
     games:[]
@@ -27,6 +30,8 @@ class App extends Component {
     <Search />
     <Create />
     <Category />
+    
+    <Card />
        </div>
 
     )

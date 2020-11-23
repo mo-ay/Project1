@@ -9,14 +9,18 @@ class Search extends Component{
     }
      searchFunction= async(e)=>{
            e.preventDefault();
+           
            const searchInput= e.target.searchInput.value;
+           if (!searchInput){
+            e.preventDefault();
+           }else{
            const url=`http://localhost:8001/games/${searchInput}`;
            const response=await fetch(url);
            const result=await response.json();
            //console.log(result);
     
         this.setState({game:result});
-        console.log(this.state.game);
+        console.log(this.state.game);}
       
  }
  
