@@ -26,6 +26,8 @@ class Card extends Component{
         return(
 
             <div className="Card">
+
+              
                 <div className="d-flex flex-wrap cardContainer " style={{display:"flex"}}>
                   <div>{this.state.games.map(g =>
                      <div key={g.toString} className="card">
@@ -36,7 +38,7 @@ class Card extends Component{
                          <p>Release Date: {g.releasdate}</p>
                          </div>
 
-                        <div class="gameName">
+                        <div className="gameName">
                         <h3>{g.name}</h3>
                        </div>
                     </div>
