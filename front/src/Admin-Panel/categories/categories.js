@@ -66,28 +66,19 @@ class Category extends Component{
             
             <div className="Category">
 
-                {!this.props.adminView?
-
-                  
-                     <div className="allBlogsTop homeCategories">
-                       <h2 className="allBlogsHeading">All Blogs:</h2>
-                        <select  name="" id="">{this.state.category.map(cat=> 
-                          <option key={cat.id} >{cat.categories}</option>)}
-                        </select>
-                     </div>
-                  
-                  :
-          <div className="adminCategories">
+        <div className="adminCategories">
+            
+                <form   onSubmit={this.createCategory}>
+                <input type="text" name="categoryname" placeholder="Create New Category"></input>
+                <input type="submit" value="Create" />
+                
+            </form>
             <ul>
              {this.state.category.map(cat=> <li key={cat.id}> {cat.categories} <span style={{color:"red",margin:"20px"}} onClick={()=>this.removeCategory(cat.id)} > 
-              X</span></li>,<br></br>)}
+              &times;</span></li>,<br></br>)}
             </ul>
-                <form   onSubmit={this.createCategory}>
-                <input type="text" name="categoryname"></input>
-                <input type="submit" />
-            </form>
             </div>   
-    };
+
 
 
          </div>

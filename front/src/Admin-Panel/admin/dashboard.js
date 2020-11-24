@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import Category from '../categories/categories';
+import Search from '../search/search';
+import AllCards from '../card/allCard';
+import Create from '../create/create';
 import './dash.css' 
 import Bold from './img/bold.svg'
 import Downarrow from './img/downarrow.svg'
@@ -121,8 +124,13 @@ function ins(action){
 
 <main className="container">
 
-<Category />
+<div>
+  <Search />
+</div>
 
+<div>
+    <AllCards />
+</div>
 
 <div className="editor">
     <div className="toolbar">
@@ -225,13 +233,15 @@ function ins(action){
         <textarea className="html-view"></textarea>
     </div>
 </div>
+
 <div className="blogs">
     <h2>blogs</h2>
 </div>
 
 </main>
 
-
+<Category />
+<Create />
            </div>
           
 
