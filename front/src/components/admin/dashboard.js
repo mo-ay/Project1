@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Category from '../categories/categories';
 import './dash.css' 
 import Bold from './img/bold.svg'
 import Downarrow from './img/downarrow.svg'
@@ -120,7 +121,7 @@ function ins(action){
 
 <main className="container">
 
-
+<Category />
 
 
 <div className="editor">

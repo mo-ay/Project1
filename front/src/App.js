@@ -8,10 +8,11 @@ import './components/card/Style.css'
 //import Card from './components/card/allCard';
 import Home from '../src/components/Home/home'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-
+import Dashboard from '../src/components/admin/dashboard'
 class App extends Component {
   state={
-    games:[]
+    games:[],
+    adminView:false
   }
   
   
@@ -20,9 +21,9 @@ class App extends Component {
 
     return (
       
-        < div className="App"  >
-        <Home />
-          
+        < div className="body">
+         <Home adminView={this.state.adminView}/>
+         <Dashboard />
        </div>
         
 

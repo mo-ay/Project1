@@ -58,13 +58,16 @@ class Category extends Component{
      this.componentDidMount();
         }
 
-
+ 
 
     
     render(){
         return(
+            
             <div className="Category">
-                
+
+                {!this.props.adminView?
+
                   
                      <div className="allBlogsTop homeCategories">
                        <h2 className="allBlogsHeading">All Blogs:</h2>
@@ -73,8 +76,8 @@ class Category extends Component{
                         </select>
                      </div>
                   
-
-         {/* <div className="adminCategories">
+                  :
+          <div className="adminCategories">
             <ul>
              {this.state.category.map(cat=> <li key={cat.id}> {cat.categories} <span style={{color:"red",margin:"20px"}} onClick={()=>this.removeCategory(cat.id)} > 
               X</span></li>,<br></br>)}
@@ -83,8 +86,8 @@ class Category extends Component{
                 <input type="text" name="categoryname"></input>
                 <input type="submit" />
             </form>
-            </div>  */}
-
+            </div>   
+    };
 
 
          </div>

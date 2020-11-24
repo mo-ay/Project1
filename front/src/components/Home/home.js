@@ -19,15 +19,16 @@ class Home extends Component{
    
     render(){
         return (
-           <div>
+           <div >
+
              <div className="header">
              <Search />
              </div>
              
 
-           <div className="topRatedBlogs">
+           
              <h2>Top Rated Blogs:</h2>
-            <div className="d-flex flex-wrap cardContainer fiveCards">
+            <div className="cardContainer fiveCards">
                 
                 
                {this.state.games.slice(0,4).map(g =>
@@ -47,13 +48,13 @@ class Home extends Component{
                          </div>
                         </div>)}
             </div>
-        </div>
+       
 
 
 
-        <div className="mostRecentBlogs">
+        
              <h2>Most Recent Blogs:</h2>
-               <div className="d-flex flex-wrap cardContainer fiveCards">
+               <div className="cardContainer fiveCards">
                {this.state.games.slice(0,4).map(g =>
                      <div key={g.id}>
                          <div className="card">
@@ -70,11 +71,11 @@ class Home extends Component{
                          </div>
                         </div>)}
              </div>
-             </div>
+             
 
 
-        <Category />
-        <div className="d-flex flex-wrap cardContainer">
+        <Category adminView={this.props.adminView}/>
+        <div className="cardContainer">
             {this.state.games.map(g =>
                      <div key={g.id}>
                          <div className="card">
