@@ -1,18 +1,19 @@
 import React, {Component}from 'react'
 
 import './App.css';
-import './components/card/Style.css'
+import './Admin-Panel/card/Style.css'
 //import Search from './components/search/search';
 //import Create from './components/create/create'
 //import Category from './components/categories/categories' 
 //import Card from './components/card/allCard';
-import Home from '../src/components/Home/home'
+import Home from '../src/Home/Home/home'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import Dashboard from '../src/components/admin/dashboard'
+import Page from '../src/Description-Page/page'
+
 class App extends Component {
   state={
     games:[],
-    adminView:false
+    
   }
   
   
@@ -22,9 +23,8 @@ class App extends Component {
     return (
       
         < div className="body">
-         <Home adminView={this.state.adminView}/>
-         <Dashboard />
-       </div>
+         <Home />
+         </div>
         
 
     )

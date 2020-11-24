@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import '../card/Style.css';
+import '../../Admin-Panel/card/Style.css';
 import Search from '../search/search';
-import Category from '../categories/categories'
+//import Category from '../categories/categories'
  
 class Home extends Component{
     state={
@@ -74,7 +74,7 @@ class Home extends Component{
              
 
 
-        <Category adminView={this.props.adminView}/>
+        
         <div className="cardContainer">
             {this.state.games.map(g =>
                      <div key={g.id}>
