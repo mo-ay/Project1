@@ -28,6 +28,17 @@ render(){
 <form onSubmit={this.getGame}>
     <input type="number" name="oneG" ></input>
 </form>
+<div>{this.state.oneGame.map(g=>
+<div key={g.id}>
+    <div>{g.name}</div>
+    <div>{g.rate}</div>
+    <div>{g.imagepath}</div>
+    <div>{g.releasdate}</div>
+    <div>{g.post}</div>
+    </div>
+    )}
+
+</div>
  
  
 

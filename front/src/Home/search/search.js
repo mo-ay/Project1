@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import '../../Admin-Panel/card/Style.css';
-//import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+//  import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 
 
