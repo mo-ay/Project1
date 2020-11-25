@@ -5,17 +5,22 @@ class CardSelected extends Component{
         oneGame:[]
     }
 
-    getGame= async(e)=>{
-        e.preventDefault();
-        const id=e.target.oneG.value;
+    componentDidMount(){
+        this.getGame();
+    }
+
+    getGame= async()=>{
         
-const response=await fetch(`http://localhost:8001/game/${id}`);
+        const id=this.props.match.params.id;
+        console.log(id)
+        const response=await fetch(`http://localhost:8001/game/${id}`);
         const result= await response.json();
        //console.log(result);
-    this.setState({oneGame:result});
-    console.log(this.state.oneGame)
+        this.setState({oneGame:result});
+        console.log(this.state.oneGame)
 
     }
+    
 
 
 
@@ -23,26 +28,27 @@ render(){
     
     
     return(
+        <>
         <div className="CardSelected">
             
-<form onSubmit={this.getGame}>
-    <input type="number" name="oneG" ></input>
-</form>
+
 <div>{this.state.oneGame.map(g=>
 <div key={g.id}>
-    <div>{g.name}</div>
-    <div>{g.rate}</div>
-    <div>{g.imagepath}</div>
-    <div>{g.releasdate}</div>
-    <div>{g.post}</div>
-    </div>
+<img src= {g.imagepath} />
+    <div>Name: {g.name}</div>
+    <div>Rate: {g.rate}</div>
+    <div>Author: {g.author}</div>
+    <div>Posted On: {g.date}</div>
+    <div> <a href={g.itchio_link} > Play the game on itchio</a></div>
+   <div>Blog: {g.post}</div>
+  </div>
     )}
 
 </div>
  
  
 
-        </div>
+        </div></>
     )
 }
 

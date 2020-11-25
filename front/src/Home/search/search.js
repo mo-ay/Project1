@@ -18,11 +18,11 @@ class Search extends Component{
            }else{
            const url=`http://localhost:8001/games/${searchInput}`;
            const response=await fetch(url);
+           console.log(response);
            const result=await response.json();
            //console.log(result);
-    
-        this.setState({game:result});
-        console.log(this.state.game);}
+           this.setState({game:result});
+           console.log(this.state.game);}
       
  }
  
@@ -31,8 +31,8 @@ class Search extends Component{
         return(
             <div className="Search">
 
-                
-                
+                <div>
+
                   <img src="./img/indie_bite-01.svg" alt="Indie Bite" className="logo" />
                    <form onSubmit={this.searchFunction}>
                     <input type="text" name="searchInput" className="search" placeholder="What are you looking for?"/>
@@ -40,12 +40,11 @@ class Search extends Component{
                     <i className="fa fa-search"></i>
                     </button>
                    </form>
-                  
+                   </div>
                 
-                
-         
-        
-                  <div>{this.state.game.map(g =>
+                <div className="cardContainer" style={{background:"red",width:"80vw",display:"flex"}}>
+                    
+                 <div>{this.state.game.map(g =>
                      <div key={g.id} className="card">
                        <img src="https://images.wallpaperscraft.com/image/night_city_aerial_view_night_192859_1024x768.jpg" />
                          <div className="info">
@@ -62,7 +61,7 @@ class Search extends Component{
                 
             </div>
          
-                
+            </div>
             </div>
         )
     }

@@ -24,16 +24,17 @@ class Card extends Component{
 
     render(){
         return(
-
+          <div className="bodyDash">
+            
           <div className="cardContainer">
-          {this.state.games.map(g =>
+          {this.state.games.slice(0,4).map(g =>
                    <div key={g.id}>
                        <div className="card">
-                       <img src="https://images.wallpaperscraft.com/image/night_city_aerial_view_night_192859_1024x768.jpg" />
+                       <img src={g.imagepath} />
                        <div className="info">
                        <h3>{g.name}</h3>
-                       <h3> Rating: {g.rate}</h3>
-                       <p>Release Date: {g.releasdate}</p>
+                       {/* <h3> Rating: {g.rate}/10</h3> */}
+                       {/* <p>Author: {g.releasdate}</p> */}
                        <button>Read More</button>
                        <div className="gameName">
                        <h3>{g.name}</h3>
@@ -42,6 +43,7 @@ class Card extends Component{
                        </div>
                       </div>)}
       </div> 
+      </div>
         )}
       
           }

@@ -15,8 +15,9 @@ ReactDOM.render(
     
   <BrowserRouter>
     <Switch>
-          <Route path="/description">
-            <Page />
+          <Route path="/description/:id" render={(props)=><Page {...props} />}>
+            
+            
           </Route>
           <Route path="/login">
           

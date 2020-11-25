@@ -31,7 +31,7 @@ class Category extends Component{
             'Content-Type': 'application/json'
           },body:JSON.stringify(body)});
         const result=await response.json();
-        //console.log("elie")
+        console.log("elie")
         this.componentDidMount();
         e.target.categoryname.value="";
 
@@ -65,20 +65,13 @@ class Category extends Component{
         return(
             
             <div className="Category">
-                
 
-        <div className="adminCategories">
-            
-                <form   onSubmit={this.createCategory}>
-                <input type="text" name="categoryname" placeholder="Create New Category"></input>
-                <input type="submit" value="Create" />
-                
-            </form>
-            <ul>
-             {this.state.category.map(cat=> <li key={cat.id}> {cat.categories} <span style={{color:"red",margin:"20px"}} onClick={()=>this.removeCategory(cat.id)} > 
-              &times;</span></li>,<br></br>)}
-            </ul>
-            </div>   
+                   <div className="allBlogsTop homeCategories">
+                       <h2 className="allBlogsHeading">All Blogs:</h2>
+                        <select  name="" id="">{this.state.category.map(cat=> 
+                          <option key={cat.id} >{cat.categories}</option>)}
+                        </select>
+                     </div>
 
 
 

@@ -47,11 +47,12 @@ class Search extends Component{
         
                   <div>{this.state.game.map(g =>
                      <div key={g.id} className="card">
-                       <img src="https://images.wallpaperscraft.com/image/night_city_aerial_view_night_192859_1024x768.jpg" />
+                       <img src={g.imagepath} />
                          <div className="info">
                          <h3>{g.name}</h3> <br></br>
                          <h3> Rating: {g.rate}</h3><br></br>
-                         <p>Release Date: {g.releasdate}</p>
+                         <p>author: {g.author}</p>
+                         <p> date: {g.date}</p>
                          </div>
 
                         <div className="gameName">

@@ -37,18 +37,16 @@ app.get('/', function (req, res) {
    
  app.get('/games/:searchInput', (req, res)=>{
   const searchInput=req.params.searchInput;
-    db.query(`SELECT id AS id, name, rate, imagepath, releasdate, post FROM games 
+    db.query(`SELECT id AS id, name, rate, imagepath, author, post, date, itchio_link FROM games 
     WHERE name LIKE '%${searchInput}%'
     OR rate LIKE '%${searchInput}%'
-    OR releasdate LIKE '%${searchInput}%'`
+    OR author LIKE '%${searchInput}%'`
     ,(err,rows)=>{
-      try{
-          res.send(rows)
-        }
-       catch(err){
-          console.log(err)
-          console.log("erro in search by id query")
-      }
+    if (err) res.send(err);
+    else{
+          res.send(rows)}
+        
+       
     });
  })
 
@@ -58,7 +56,7 @@ app.get('/', function (req, res) {
  //-----------------------------------------------------------------//
  app.get('/game/:id', (req, res)=>{
   const id=req.params.id;
-    db.query(`SELECT id AS id, name, rate, imagepath, releasdate, post FROM games 
+    db.query(`SELECT id AS id, name, rate, imagepath, author, post, date, itchio_link FROM games 
     WHERE id=${id}`
     ,(err,rows)=>{
           if (err) throw err;
@@ -93,8 +91,8 @@ app.get('/', function (req, res) {
 
  app.put('/updategame', (req, res)=>{
                                               
-  db.query('UPDATE `games` SET `name`=?,`rate`=?,`imagepath`=?,`releasdate`=?,`post`=? WHERE `id`=?',
-  [req.body.name, req.body.rate, req.body.imagepath, req.body.releasdate, req.body.post, req.body.id],
+  db.query('UPDATE `games` SET `name`=?,`rate`=?,`imagepath`=?,`author`=?,`post`=?, `date=?`,`itchio_link` WHERE `id`=?',
+  [req.body.name, req.body.rate, req.body.imagepath, req.body.author, req.body.post, req.body.date, req.body.itchio_link,  req.body.id],
   (err,rows,fields)=>{
     if (err)throw err;
     res.send(JSON.stringify(rows));
