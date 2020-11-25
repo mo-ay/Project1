@@ -4,6 +4,7 @@ import Search from '../search/search';
 import AllCards from '../card/allCard';
 import Create from '../create/create';
 import './dash.css' 
+
 import Bold from './img/bold.svg'
 import Downarrow from './img/downarrow.svg'
 import Indent from './img/indent.svg'
@@ -121,16 +122,15 @@ function ins(action){
        
         return(
            <div>
+<div>
+   <Search /> 
+</div>
 
 <main className="container">
 
-<div>
-  <Search />
-</div>
 
-<div>
-    <AllCards />
-</div>
+
+
 
 <div className="editor">
     <div className="toolbar">
@@ -236,12 +236,17 @@ function ins(action){
 
 <div className="blogs">
     <h2>blogs</h2>
+    <div>
+    <Category /> 
+     <AllCards />
+</div>
 </div>
 
 </main>
 
-<Category />
-<Create />
+
+   <Create />
+
            </div>
           
 

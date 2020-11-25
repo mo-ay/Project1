@@ -12,8 +12,11 @@ createFunction=async(e)=>{
         name:e.target.name.value,
         rate:e.target.rate.value,
         imagepath:e.target.imagepath.value,
-        releasdate:e.target.releasdate.value,
-        post:e.target.post.value
+        author:e.target.author.value,
+        post:e.target.post.value,
+        date:e.target.date.value,
+        itchio_link:e.target.itchio.value
+        
     }
 
     const response= await fetch(url,{method:'POST',headers: {
@@ -35,8 +38,10 @@ createFunction=async(e)=>{
                     <input type="text" name="name" placeholder="Name"/>
                     <input type="number" name="rate" placeholder="Rate 1/10"/>
                     <input type="text" name="imagepath" placeholder="image"/>
-                    <input type="text" name="releasdate" placeholder="2020-12-31"/>
+                    <input type="text" name="author" placeholder="author"/>
                     <input type="text" name="post" placeholder="Blog"/>
+                    <input type="text" name="date" placeholder="2020-12-31"/>
+                    <input type="text" name="itchio" placeholder="link"/>
                     <input type="submit" name="submit"/>
                 </form>
               <div>

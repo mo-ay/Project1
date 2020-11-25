@@ -1,3 +1,7 @@
+
+
+
+
 .container {
     margin: 0;
     height: 100vh;
@@ -17,12 +21,13 @@
     margin: 2rem;
   }
   .blogs{
-    width: 40rem;
-    min-height: 25rem;
+    width: 50rem;
+    min-height: 35rem;
     box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.3);
     border-top: 6px solid #36773f;
     border-radius: 3px;
-    margin: 2rem;
+    margin: 10rem;
+    margin-top:100rem;
   }
   
   .toolbar {
