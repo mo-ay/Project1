@@ -1,8 +1,11 @@
 import React, {Component} from 'react';
 import '../../Admin-Panel/card/Style.css';
 import Search from '../search/search';
+//import { withRouter } from 'react-router-dom';
+//import { useHistory} from 'react-router-dom';
 //import Category from '../categories/categories'
  
+
 class Home extends Component{
     state={
         games:[]
@@ -15,7 +18,8 @@ class Home extends Component{
        
        this.setState({games:sorting});
        }
-      
+    
+     
    
     render(){
         return (
@@ -24,6 +28,8 @@ class Home extends Component{
              <div className="header">
              <Search />
              </div>
+
+           
              
 
            
@@ -32,22 +38,25 @@ class Home extends Component{
                 
                 
                {this.state.games.slice(0,4).map(g =>
-             
+    
                      <div key={g.id}>
-                         <div className="card">
+                         
+                         <div className="card" data={g.id}>
                          <img src="https://images.wallpaperscraft.com/image/night_city_aerial_view_night_192859_1024x768.jpg" />
                          <div className="info">
                          <h3>{g.name}</h3>
                          <h3> Rating: {g.rate}</h3>
                          <p>Release Date: {g.releasdate}</p>
-                         <button>Read More</button>
+                         <button  onClick={event=>window.location.href='./description'} >Read More</button>
                          <div className="gameName">
                          <h3>{g.name}</h3>
                          </div>
                          </div>
                          </div>
-                        </div>)}
+                        </div>
+                        )}
             </div>
+            
        
 
 
@@ -93,8 +102,7 @@ class Home extends Component{
                         </div>)}
         </div> 
     
-    
-
+        
 
         </div>
         )
