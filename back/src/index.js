@@ -1,6 +1,7 @@
 import { response } from 'express';
 import app from './app'
 import db from './db'
+const multer  = require('multer');
 
 
 
@@ -204,6 +205,8 @@ app.get('/category',(req,res)=>{
 
 
 //******************Categories****************** */
+
+
 
 
 app.listen( 8001, () => console.log('server listening on port 8001') )
