@@ -1,9 +1,9 @@
-import { response } from 'express';
+
 import app from './app'
 import db from './db'
-
-
-
+const path = require('path');
+const multer = require('multer');
+const helpers = require('./helper');
 
 //test your database connection
 app.get('/', function (req, res) {
@@ -37,18 +37,16 @@ app.get('/', function (req, res) {
    
  app.get('/games/:searchInput', (req, res)=>{
   const searchInput=req.params.searchInput;
-    db.query(`SELECT id AS id, name, rate, imagepath, releasdate, post FROM games 
+    db.query(`SELECT id AS id, name, rate, imagepath, author, post, date, itchio_link FROM games 
     WHERE name LIKE '%${searchInput}%'
     OR rate LIKE '%${searchInput}%'
-    OR releasdate LIKE '%${searchInput}%'`
+    OR author LIKE '%${searchInput}%'`
     ,(err,rows)=>{
-      try{
-          res.send(rows)
-        }
-       catch(err){
-          console.log(err)
-          console.log("erro in search by id query")
-      }
+    if (err) res.send(err);
+    else{
+          res.send(rows)}
+        
+       
     });
  })
 
@@ -58,23 +56,85 @@ app.get('/', function (req, res) {
  //-----------------------------------------------------------------//
  app.get('/game/:id', (req, res)=>{
   const id=req.params.id;
-    db.query(`SELECT id AS id, name, rate, imagepath, releasdate, post FROM games 
+    db.query(`SELECT id AS id, name, rate, imagepath, author, post, date, itchio_link FROM games 
     WHERE id=${id}`
     ,(err,rows)=>{
           if (err) throw err;
           res.send(rows)
         });
  })
+
+
+
+
  //-----------------------------------------------------------------//
  //                 Add Game  -- Tested on POSTMAN                  //
  //-----------------------------------------------------------------//
+
+
  app.post('/addgame', (req, res)=>{
-  var postData=req.body; 
-  console.log(postData);                                           
-  db.query('INSERT INTO games SET ?',postData,(err,rows,fields)=>{
-    if (err)throw err;
-    res.send(rows)
-  });
+ 
+  let imagepath, postData = "";
+///image function handeler
+const storage = multer.diskStorage({
+  destination: function(req, file, cb) {
+                            ///should the path be beteen ./dir/
+      cb(null,path.resolve( "./public/uploads/"));
+      
+  },
+
+  // By default, multer removes file extensions so let's add them back
+  filename: function(req, file, cb) {
+        imagepath = file.originalname.substring(0,file.originalname.indexOf("."))+ '-' + Date.now() + path.extname(file.originalname)
+      cb(null, imagepath);
+  }
+});
+
+
+let upload = multer({ storage: storage, fileFilter: helpers.imageFilter }).single('imagepath');
+
+    upload(req, res, function(err) {
+        // req.file contains information of uploaded file
+        // req.body contains information of text fields, if there were any
+        
+        if (req.fileValidationError) {
+            return res.send(req.fileValidationError);
+        }
+        else if (!req.file) {
+            return res.send('Please select an image to upload');
+        }
+        else if (err instanceof multer.MulterError) {
+            return res.send(err);
+        }
+        else if (err) {
+            return res.send(err);
+        }
+        imagepath = "./public/uploads/" + imagepath
+      
+        var {name ,rate ,author, post , date , itchio_link}= req.body
+
+        
+        postData = req.body;
+        postData.imagepath = imagepath
+        db.query('INSERT INTO games SET ?',postData,(err,rows,fields)=>{
+          if (err)res.send(err);
+             res.send(rows)
+        })
+        //res.send(`You have uploaded this image: <hr/><img src="${req.file}" width="500"><hr /><a href="./">Upload another image</a>`);
+      });
+
+
+
+
+
+
+
+
+
+  
+
+
+ 
  });
 
  //-----------------------------------------------------------------//
@@ -93,8 +153,8 @@ app.get('/', function (req, res) {
 
  app.put('/updategame', (req, res)=>{
                                               
-  db.query('UPDATE `games` SET `name`=?,`rate`=?,`imagepath`=?,`releasdate`=?,`post`=? WHERE `id`=?',
-  [req.body.name, req.body.rate, req.body.imagepath, req.body.releasdate, req.body.post, req.body.id],
+  db.query('UPDATE `games` SET `name`=?,`rate`=?,`imagepath`=?,`author`=?,`post`=?, `date=?`,`itchio_link` WHERE `id`=?',
+  [req.body.name, req.body.rate, req.body.imagepath, req.body.author, req.body.post, req.body.date, req.body.itchio_link,  req.body.id],
   (err,rows,fields)=>{
     if (err)throw err;
     res.send(JSON.stringify(rows));
@@ -133,5 +193,79 @@ app.get('/', function (req, res) {
 
 // })
  
+//******************Categories****************** */
+
+ //-----------------------------------------------------------------//
+ //                 Get all categories   -- Tested on POSTMAN                  //
+ //-----------------------------------------------------------------//
+app.get('/category',(req,res)=>{
+  db.query("SELECT * FROM category",(err,rows)=>{
+    try{
+      res.send(rows)
+    }
+    catch(err){
+      console.log(err);
+    }
+  })
+})
+
+
+ //-----------------------------------------------------------------//
+ //                 Get  categories by id  -- Tested on POSTMAN                  //
+ //-----------------------------------------------------------------//
+ app.get('/categoryid/:id',(req,res)=>{
+  const id=req.params.id;
+  db.query(`SELECT * FROM category WHERE id=${id} `,(err,rows)=>{
+    try{
+      res.send(rows)
+    }
+    catch(err){
+      console.log(err);
+    }
+  })
+})
+
+//-----------------------------------------------------------------//
+ //                Add  categories   -- Tested on POSTMAN                  //
+ //-----------------------------------------------------------------//
+ app.post('/addcategory',(req,res)=>{
+
+  const dataPost=req.body;
+  db.query(`INSERT INTO category SET ? `,dataPost,(err,rows,fields)=>{
+    if (err)throw err;
+    res.send(rows)
+  });
+ });
+
+
+ //-----------------------------------------------------------------//
+ //                Update categories   -- Tested on POSTMAN                  //
+ //-----------------------------------------------------------------//
+ app.put('/updatecategory', (req, res)=>{
+                                              
+  db.query('UPDATE `category` SET `categories`=? WHERE `id`=?',
+  [req.body.categories, req.body.id],
+  (err,rows,fields)=>{
+    if (err)throw err;
+    res.send(JSON.stringify(rows));
+  });
+ });
+ 
+
+
+//-----------------------------------------------------------------//
+ //                 Remove categories-- Tested on POSTMAN                //
+ //-----------------------------------------------------------------//
+ app.delete('/deletecategory', (req, res)=>{
+                                           
+  db.query('DELETE FROM category WHERE `id`=?',[req.body.id],(err,rows,fields)=>{
+    if (err)throw err;
+    res.send('Category  HAS BEEN DELETED');
+  });
+ });
+
+
+//******************Categories****************** */
+
 
 app.listen( 8001, () => console.log('server listening on port 8001') )

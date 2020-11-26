@@ -4,8 +4,9 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import  {BrowserRouter, Switch, Route, Router}from 'react-router-dom'
-import  Login from './components/admin/login'
-import  Dashboard from './components/admin/dashboard'
+import  Login from './Admin-Panel/admin/login'
+import  Dashboard from './Admin-Panel/admin/dashboard'
+import Page from './Description-Page/page'
 
 ReactDOM.render(
  
@@ -14,8 +15,9 @@ ReactDOM.render(
     
   <BrowserRouter>
     <Switch>
-          <Route path="/about">
-            <h1>Not Yet</h1>
+          <Route path="/description/:id" render={(props)=><Page {...props} />}>
+            
+            
           </Route>
           <Route path="/login">
           
