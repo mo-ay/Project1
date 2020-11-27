@@ -4,9 +4,10 @@ import Search from '../search/search';
 //import { withRouter } from 'react-router-dom';
 //import { useHistory} from 'react-router-dom';
 import Category from '../categories-home/categories-home'
- 
+//import jj from '../../'
 
 class Home extends Component{
+   dir =  "../../../../back/"
     state={
         games:[],
         gamesByDate:[]
@@ -80,7 +81,7 @@ class Home extends Component{
                {this.state.gamesByDate.slice(0,4).map(g =>
                      <div key={g.id}>
                          <div className="card">
-                         <img src={g.imagepath} />
+                         <img src="/logo192.png"/>
                          <div className="info">
                          <h3>{g.name}</h3>
                           {/* <h3> Rating: {g.rate}</h3> */}

@@ -1,9 +1,10 @@
-import { response } from 'express';
+
 import app from './app'
 import db from './db'
-const multer  = require('multer');
 
-
+const path = require('path');
+const multer = require('multer');
+const helpers = require('./helper');
 
 
 //test your database connection
@@ -64,16 +65,78 @@ app.get('/', function (req, res) {
           res.send(rows)
         });
  })
+
+
+
+
  //-----------------------------------------------------------------//
  //                 Add Game  -- Tested on POSTMAN                  //
  //-----------------------------------------------------------------//
+
+
  app.post('/addgame', (req, res)=>{
-  var postData=req.body; 
-  console.log(postData);                                           
-  db.query('INSERT INTO games SET ?',postData,(err,rows,fields)=>{
-    if (err)throw err;
-    res.send(rows)
-  });
+ 
+  let imagepath, postData = "";
+///image function handeler
+const storage = multer.diskStorage({
+  destination: function(req, file, cb) {
+                            ///should the path be beteen ./dir/
+      cb(null,path.resolve( "./public/uploads/"));
+      
+  },
+
+  // By default, multer removes file extensions so let's add them back
+  filename: function(req, file, cb) {
+        imagepath = file.originalname.substring(0,file.originalname.indexOf("."))+ '-' + Date.now() + path.extname(file.originalname)
+      cb(null, imagepath);
+  }
+});
+
+
+let upload = multer({ storage: storage, fileFilter: helpers.imageFilter }).single('imagepath');
+
+    upload(req, res, function(err) {
+        // req.file contains information of uploaded file
+        // req.body contains information of text fields, if there were any
+        
+        if (req.fileValidationError) {
+            return res.send(req.fileValidationError);
+        }
+        else if (!req.file) {
+            return res.send('Please select an image to upload');
+        }
+        else if (err instanceof multer.MulterError) {
+            return res.send(err);
+        }
+        else if (err) {
+            return res.send(err);
+        }
+        imagepath = "./public/uploads/" + imagepath
+      
+        var {name ,rate ,author, post , date , itchio_link}= req.body
+
+        
+        postData = req.body;
+        postData.imagepath = imagepath
+        db.query('INSERT INTO games SET ?',postData,(err,rows,fields)=>{
+          if (err)res.send(err);
+             res.send(rows)
+        })
+        //res.send(`You have uploaded this image: <hr/><img src="${req.file}" width="500"><hr /><a href="./">Upload another image</a>`);
+      });
+
+
+
+
+
+
+
+
+
+  
+
+
+ 
  });
 
  //-----------------------------------------------------------------//

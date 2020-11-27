@@ -33,7 +33,7 @@ class Search extends Component{
 
                 <div>
 
-                  <img src="./img/indie_bite-01.svg" alt="Indie Bite" className="logo" />
+                  <img src="" alt="Indie Bite" className="logo" />
                    <form onSubmit={this.searchFunction}>
                     <input type="text" name="searchInput" className="search" placeholder="What are you looking for?"/>
                     <button type="submit" name="submit" className="searchButton">
