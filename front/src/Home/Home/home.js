@@ -43,7 +43,7 @@ class Home extends Component {
               {this.state.games.slice(0, 4).map((g) => (
                 <div key={g.id}>
                   <div className="card" data={g.id}>
-                    <img src="../../x.png" />
+                    <img src={g.imagepath} />
                     <div className="info">
                       <h5>{g.name}</h5>
                       <h5> Rating: {g.rate}</h5>
@@ -72,7 +72,7 @@ class Home extends Component {
               {this.state.gamesByDate.slice(0, 4).map((g) => (
                 <div key={g.id}>
                   <div className="card">
-                    <img src="../../x.png" alt="among us" />
+                    <img src={g.imagepath} alt="among us" />
                     <div className="info">
                       <h5>{g.name}</h5>
                       {/* <h5> Rating: {g.rate}</h5> */}
@@ -96,7 +96,7 @@ class Home extends Component {
               {this.state.games.map((g) => (
                 <div key={g.id}>
                   <div className="card">
-                    <img src="../../x.png" />
+                    <img src={g.imagepath} />
                     <div className="info">
                       <h5>{g.name}</h5>
                       {/* <h5> Rating: {g.rate}</h5>

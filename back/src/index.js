@@ -109,7 +109,7 @@ let upload = multer({ storage: storage, fileFilter: helpers.imageFilter }).singl
         else if (err) {
             return res.send(err);
         }
-        imagepath = "./public/uploads/" + imagepath
+        imagepath = "http://localhost:8001/uploads/" + imagepath
       
         var {name ,rate ,author, post , date , itchio_link}= req.body
 
