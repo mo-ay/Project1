@@ -26,18 +26,18 @@ class Card extends Component{
         return(
           <div className="bodyDash">
             
-          <div className="cardContainer">
+          <div className="cardContainer all dash">
           {this.state.games.slice(0,4).map(g =>
                    <div key={g.id}>
                        <div className="card">
                        <img src={g.imagepath} />
                        <div className="info">
-                       <h3>{g.name}</h3>
-                       {/* <h3> Rating: {g.rate}/10</h3> */}
+                       <h5>{g.name}</h5>
+                       {/* <h5> Rating: {g.rate}/10</h5> */}
                        {/* <p>Author: {g.releasdate}</p> */}
                        <button>Read More</button>
                        <div className="gameName">
-                       <h3>{g.name}</h3>
+                       <h5>{g.name}</h5>
                        </div>
                        </div>
                        </div>
