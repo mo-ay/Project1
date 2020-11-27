@@ -40,6 +40,7 @@ h3 {
   padding: 70px 0 10px 50px;
 }
 
+
 .description {
   float: right;
   line-height: 30px;
@@ -48,6 +49,7 @@ h3 {
   height: 30vh;
   padding-top: 22px;
   margin: 15px;
+  display: table;
 }
 
 li {
@@ -66,6 +68,7 @@ li {
 .suggested {
   position: relative;
   float: right;
+  margin-top: -80px;
 } 
 
 .back{
