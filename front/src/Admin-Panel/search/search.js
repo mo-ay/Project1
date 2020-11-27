@@ -29,12 +29,12 @@ class Search extends Component{
  
     render(){
         return(
-            <div className="search">
+            <div className="Search dashSearch">
 
                 
                 
-                  <img src={require("./indie_bite-01.svg")} alt="Indie Bite" className="logo" />
-                   <form onSubmit={this.searchFunction}>
+                  <img src="#" alt="Indie Bite" className="logo" />
+                   <form onSubmit={this.searchFunction} className="headerForm">
                     <input type="text" name="searchInput" className="search" placeholder="What are you looking for?"/>
                     <button type="submit" name="submit" className="searchButton">
                     <i className="fa fa-search"></i>
@@ -43,7 +43,7 @@ class Search extends Component{
                 
          
         
-                  <div className="x">{this.state.game.map(g =>
+                  <div className="cardContainer" style={{boxShadow:"none"}}>{this.state.game.map(g =>
                      <div key={g.id} className="card">
                        <img src={g.imagepath} />
                          <div className="info">

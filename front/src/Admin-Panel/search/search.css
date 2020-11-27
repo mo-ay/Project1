@@ -18,3 +18,16 @@
   outline: none;
 }
 
+.headerForm {
+  margin: 0;
+  width: 100vh;
+  align-self: center;
+  margin-left: 33.3%;
+  position: relative;
+  display: flex;
+  margin-left: 29.5%;
+}
+
+.dashSearch form{
+  margin-left: 35vw;
+}
