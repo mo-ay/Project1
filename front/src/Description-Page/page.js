@@ -29,7 +29,7 @@ class CardSelected extends Component {
               {this.state.oneGame.map((g) => (
                 <div key={g.id}>
                   <img
-                    src="../among_us_space_background_hd_games.png"
+                    src={g.imagepath}
                     className="cover"
                   />
                   <h3 className="name">{g.name}</h3>
@@ -44,7 +44,7 @@ class CardSelected extends Component {
                       </li>
                     </ul>
                   </div>
-                  <div className="blog">{g.post}</div>
+              <div className="blog" dangerouslySetInnerHTML={{__html:g.post}} ></div>
                 </div>
               ))}
             </div>
