@@ -33,27 +33,33 @@ class CardSelected extends Component {
                     className="cover"
                   />
                   <h3 className="name">{g.name}</h3>
-                  <div className="description">
-                    <ul>
-                      <li>Author: {g.author}</li>
-                      <li>Game Review: {g.rate}/10</li>
-                      <li>Posted On: {g.date}</li>
-                      <li>
-                        {" "}
-                        <a href={g.itchio_link}> Play the game on itchio</a>
-                      </li>
-                    </ul>
-                  </div>
-              <div className="blog" dangerouslySetInnerHTML={{__html:g.post}} ></div>
+
+                  <div className="aboutBlog">
+                    <div className="description">
+                      <ul>
+                        <li>Author: {g.author}</li>
+                        <li>Game Review: {g.rate}/10</li>
+                        <li>Posted On: {g.date}</li>
+                        <li>
+                          {" "}
+                          <a href={g.itchio_link}> Play the game on itchio</a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div className="blog" dangerouslySetInnerHTML={{__html:g.post}}  ></div>
+                   </div>
+
                 </div>
               ))}
             </div>
           </div>
           <div className="suggested">
-            <h4>Suggested Blog  :</h4>
+            <h4>Suggested Blog :</h4>
             <div className="card"></div>
           </div>
-          <a href="#" className="back">Back to Blogs Page</a>
+          <a href="#" className="back">
+            Back to Blogs Page
+          </a>
         </div>
       </div>
     );

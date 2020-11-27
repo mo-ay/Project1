@@ -50,14 +50,13 @@ class Search extends Component {
             <div key={g.id} className="card">
               <img src="https://images.wallpaperscraft.com/image/night_city_aerial_view_night_192859_1024x768.jpg" />
               <div className="info">
-                <h3>{g.name}</h3> <br></br>
-                <h3> Rating: {g.rate}</h3>
-                <br></br>
+                <h5>{g.name}</h5>
+                <h5> Rating: {g.rate}</h5>
                 <p>Release Date: {g.releasdate}</p>
               </div>
 
               <div className="gameName">
-                <h3>{g.name}</h3>
+                <h5>{g.name}</h5>
               </div>
             </div>
           ))}

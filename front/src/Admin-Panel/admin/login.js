@@ -1,5 +1,6 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
+import "./login.css"
 
 class login extends React.Component{
 
@@ -45,12 +46,14 @@ class login extends React.Component{
             )
         }
         return(
-            <div>
+            <div className="login">
+              <img src="../../indie_bite-01.png" />
+              <h4 className="admins">Administration Only</h4>
             <form onSubmit = {this.loginCheck}>
                 
-                <input type="text" name ="adminName" placeholder="user name"/>
-                <input type="password" name ="adminPassword" />
-                <input type = "submit" value="LogIn"/>
+                <input type="text" name ="adminName" placeholder="Username" className="field" />
+                <input type="password" name ="adminPassword" className="field" placeholder="Password" />
+                <button type = "submit" className="submitButton" className="subButton" ><span>Login</span></button>
 
             </form>
             </div>
