@@ -1,9 +1,11 @@
 
 import app from './app'
 import db from './db'
+
 const path = require('path');
 const multer = require('multer');
 const helpers = require('./helper');
+
 
 //test your database connection
 app.get('/', function (req, res) {
@@ -266,6 +268,8 @@ app.get('/category',(req,res)=>{
 
 
 //******************Categories****************** */
+
+
 
 
 app.listen( 8001, () => console.log('server listening on port 8001') )
