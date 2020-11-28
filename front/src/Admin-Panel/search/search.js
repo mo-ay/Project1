@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
-import '../card/Style.css';
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import "./search.css"
 
 
 
@@ -29,34 +29,32 @@ class Search extends Component{
  
     render(){
         return(
-            <div className="Search">
+            <div className="Search dashSearch">
 
                 
                 
-                  <img src="./img/indie_bite-01.svg" alt="Indie Bite" className="logo" />
-                   <form onSubmit={this.searchFunction}>
+                  <img src="#" alt="Indie Bite" className="logo" />
+                   <form onSubmit={this.searchFunction} className="headerForm">
                     <input type="text" name="searchInput" className="search" placeholder="What are you looking for?"/>
                     <button type="submit" name="submit" className="searchButton">
                     <i className="fa fa-search"></i>
                     </button>
-                   </form>
-                  
-                
+                   </form>                 
                 
          
         
-                  <div>{this.state.game.map(g =>
+                  <div className="cardContainer" style={{boxShadow:"none"}}>{this.state.game.map(g =>
                      <div key={g.id} className="card">
                        <img src={g.imagepath} />
                          <div className="info">
-                         <h3>{g.name}</h3> <br></br>
-                         <h3> Rating: {g.rate}</h3><br></br>
+                         <h5>{g.name}</h5> 
+                         <h5> Rating: {g.rate}</h5>
                          <p>author: {g.author}</p>
                          <p> date: {g.date}</p>
                          </div>
 
                         <div className="gameName">
-                        <h3>{g.name}</h3>
+                        <h5>{g.name}</h5>
                        </div>
                     </div>
                       )}
