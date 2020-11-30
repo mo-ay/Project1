@@ -1,42 +1,54 @@
 
+.mainContainer{
 
+  width: 100vw  ;
+  margin: 0;
+  height: 100vh;
+  background-color: #ee3568;
+}
 
 
 .container {
-    margin: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: left;
-    align-items: center;
+
     font-family: 'Helvetica Neue', 'Helvetica', arial, sans-serif;
   }
   
   /* WYSIWYG Editor */
   .editor {
-    width: 40rem;
-    min-height: 18rem;
+    width: 45vw;
+    min-height: 70vh;
     box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.3);
-    border-top: 6px solid #30a125;
+    border-top: 6px solid #ee3568;
     border-radius: 3px;
-    margin: 2rem;
+    margin: 0;
   }
   .blogs{
-    width: 50rem;
+    width: 50vw;
     min-height: 35rem;
     box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.3);
     border-top: 6px solid #36773f;
     border-radius: 3px;
     margin: 10rem;
-    margin-top:100rem;
   }
+
+  .subForm {
+    margin: 0;
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+
   
   .toolbar {
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2)
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2) ;
+    width: 50vw;
   }
   
   .line {
     display: flex;
-    border-bottom: 1px solid #e2e2e2
+    border-bottom: 1px solid #e2e2e2;
+    width: 50vw;
   }
   
   .line:last-child {

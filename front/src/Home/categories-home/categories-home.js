@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import "./categories-home.css"
 
 class Category extends Component{
     state={
@@ -68,7 +69,7 @@ class Category extends Component{
 
                    <div className="allBlogsTop homeCategories">
                        <h2 className="allBlogsHeading">All Blogs:</h2>
-                        <select  name="" id="">{this.state.category.map(cat=> 
+                        <select  name="" id="selection">{this.state.category.map(cat=> 
                           <option key={cat.id} >{cat.categories}</option>)}
                         </select>
                      </div>
