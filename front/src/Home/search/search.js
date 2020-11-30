@@ -48,11 +48,15 @@ class Search extends Component {
         <div className="cardContainer" style={{ boxShadow: "none" }}>
           {this.state.game.map((g) => (
             <div key={g.id} className="card">
-              <img src="https://images.wallpaperscraft.com/image/night_city_aerial_view_night_192859_1024x768.jpg" />
+              <img src={g.magepath} />
               <div className="info">
                 <h5>{g.name}</h5>
                 <h5> Rating: {g.rate}</h5>
-                <p>Release Date: {g.releasdate}</p>
+               
+                <button
+                        onClick={(event) =>
+                          (window.location.href = `./description/${g.id}`)
+                        }>Read More</button>
               </div>
 
               <div className="gameName">

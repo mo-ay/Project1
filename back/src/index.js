@@ -152,7 +152,7 @@ let upload = multer({ storage: storage, fileFilter: helpers.imageFilter }).singl
 
  app.put('/updategame', (req, res)=>{
                                               
-  db.query('UPDATE `games` SET `name`=?,`rate`=?,`imagepath`=?,`author`=?,`post`=?, `date=?`,`itchio_link` WHERE `id`=?',
+  db.query('UPDATE `games` SET `name`=?, `rate`=?, `imagepath`=?, `author`=?, `post`=?, `date`=?, `itchio_link`=? WHERE `id`=?',
   [req.body.name, req.body.rate, req.body.imagepath, req.body.author, req.body.post, req.body.date, req.body.itchio_link,  req.body.id],
   (err,rows,fields)=>{
     if (err)throw err;
