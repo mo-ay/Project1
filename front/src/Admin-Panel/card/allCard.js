@@ -18,6 +18,21 @@ class Card extends Component{
         
       }
 
+      removeGame = async(id)=>{
+        const url=`http://localhost:8001/deletegame/${id}`;
+        
+        const response =await fetch (url,{
+        method:'DELETE',
+        headers:{
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        }
+      }) 
+     
+     this.componentDidMount()
+
+      }
+
 
 
 
@@ -32,9 +47,11 @@ class Card extends Component{
                        <div className="card">
                        <img src={g.imagepath} />
                        <div className="info">
+                       <span style={{color:"red",margin:"20px"}} onClick={()=>this.removeGame(g.id)} > 
+              &times;</span>
                        <h5>{g.name}</h5>
-                       {/* <h5> Rating: {g.rate}/10</h5> */}
-                       {/* <p>Author: {g.releasdate}</p> */}
+                        <h5> Rating: {g.rate}/10</h5> 
+                        <p>Author: {g.author}</p>
                        <button>Read More</button>
                        <div className="gameName">
                        <h5>{g.name}</h5>

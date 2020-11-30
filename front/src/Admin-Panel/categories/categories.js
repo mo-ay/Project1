@@ -31,31 +31,21 @@ class Category extends Component{
             'Content-Type': 'application/json'
           },body:JSON.stringify(body)});
         const result=await response.json();
-        //console.log("elie")
+        console.log("elie")
         this.componentDidMount();
         e.target.categoryname.value="";
 
     }
-   
-    // getId=async(e)=>{
-    // const  id=e.target.del.value;
-    //     const url=`http://localhost:8001/categoryid/${id}`;
-    //     console.log(id+"piza");
-    // }
 
 
-    removeCategory =async(x)=>{
-
-        const url='http://localhost:8001/deletecategory';
-        const body={
-            id:x
-        }
-        const response=await fetch(url,{method:'DELETE',headers: {
+    removeCategory =async(id)=>{
+         const url=`http://localhost:8001/deletecategory/${id}`;
+         const response=await fetch(url,{method:'DELETE',headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
-          },body:JSON.stringify(body)
+          }
     });
-     this.componentDidMount();
+            this.componentDidMount();
         }
 
  
