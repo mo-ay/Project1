@@ -78,7 +78,7 @@ class CardSelected extends Component {
 
             <div className="card"></div>
           </div>
-          <a href="#" className="back">
+          <a href="/" className="back">
             Back to Blogs Page
           </a>
         </div>

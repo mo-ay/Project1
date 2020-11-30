@@ -92,7 +92,6 @@ const storage = multer.diskStorage({
   }
 });
 
-
 let upload = multer({ storage: storage, fileFilter: helpers.imageFilter }).single('imagepath');
 
     upload(req, res, function(err) {
@@ -103,6 +102,7 @@ let upload = multer({ storage: storage, fileFilter: helpers.imageFilter }).singl
             return res.send(req.fileValidationError);
         }
         else if (!req.file) {
+          console.log("S")
             return res.send('Please select an image to upload');
         }
         else if (err instanceof multer.MulterError) {
