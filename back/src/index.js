@@ -124,30 +124,27 @@ let upload = multer({ storage: storage, fileFilter: helpers.imageFilter }).singl
         })
         //res.send(`You have uploaded this image: <hr/><img src="${req.file}" width="500"><hr /><a href="./">Upload another image</a>`);
       });
-
-
-
-
-
-
-
-
-
-  
-
-
- 
- });
+});
 
  //-----------------------------------------------------------------//
  //                 Remove Game -- Tested on POSTMAN                //
  //-----------------------------------------------------------------//
- app.delete('/deletegame', (req, res)=>{
-  console.log(req.body)                                            
-  db.query('DELETE FROM games WHERE `id`=?',[req.body.id],(err,rows,fields)=>{
+ app.delete('/deletegame/:id', (req, res)=>{
+    const id =req.params.id;  
+    let message=""
+    
+  const firstQuery=db.query('DELETE FROM gamecategorys where gameid= '+id ,(err,rows,fields)=>{ 
     if (err)throw err;
-    res.send('GAME HAS BEEN DELETED');
+    message+="Foreign Key has been deleted"
+    
+    
   });
+  if (firstQuery){
+    db.query('DELETE FROM games where id= '+id ,(err,rows,fields)=>{ 
+      if (err)throw err;
+      res.send(message+' and GAME HAS BEEN DELETED');
+  })}
+
  });
  //-----------------------------------------------------------------//
  //                 Update Game -- Tested on POSTMAN                //
@@ -258,12 +255,22 @@ app.get('/category',(req,res)=>{
 //-----------------------------------------------------------------//
  //                 Remove categories-- Tested on POSTMAN                //
  //-----------------------------------------------------------------//
- app.delete('/deletecategory', (req, res)=>{
+ app.delete('/deletecategory/:id', (req, res)=>{
                                            
-  db.query('DELETE FROM category WHERE `id`=?',[req.body.id],(err,rows,fields)=>{
+  const id =req.params.id;  
+    let message=""
+    
+  const firstQuery=db.query('DELETE FROM gamecategorys where categoryid= '+id ,(err,rows,fields)=>{ 
     if (err)throw err;
-    res.send('Category  HAS BEEN DELETED');
+    message+="Foreign Key has been deleted"
+    
+    
   });
+  if (firstQuery){
+    db.query('DELETE FROM category where id= '+id ,(err,rows,fields)=>{ 
+      if (err)throw err;
+      res.send(message+' and Category HAS BEEN DELETED');
+  })}
  });
 
 
