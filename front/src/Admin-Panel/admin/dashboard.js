@@ -110,28 +110,44 @@ class Dashboard extends Component {
   createFunction = async (e) => {
     e.preventDefault();
     const url = "http://localhost:8001/addgame";
-    const body = {
+   /* const body = {
       name: e.target.name.value,
       rate: e.target.rate.value,
-      imagepath: e.target.imagepath.value,
+     // imagepath: e.target.imagepath.value,
       author: e.target.author.value,
       post: e.target.post.value,
       date: e.target.date.value,
       itchio_link: e.target.itchio.value,
-    };
-    console.log(body);
+    };*/
+    const visuellView = document.getElementsByClassName("visuell-view")[0];
+      let post = visuellView.innerHTML;
+      
+    
+    let form = new FormData();
+    form.append('name',e.target.name.value)
+    form.append('rate',e.target.rate.value)
+    //const filesArray = [...e.target.fileField.files]
+    
+    const file = e.target.imagepath.files[0];
+    form.append('imagepath',file)
+    form.append('author',e.target.author.value)
+    form.append('post',post)
+    form.append('date',e.target.date.value)
+    form.append('itchio_link',e.target.itchio.value)
+
+    console.log(form.get('imagepath'));
+    
     const response = await fetch(url, {
       method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(body),
+     
+      body:form
     });
-    const result = await response.json();
-    //this.setState({newGame:result})
-    console.log("NEWGAME");
-    console.log(result);
+    const result=await response.status;
+       
+       alert(result)
+      
+       
+       
   };
 
   render() {
@@ -153,7 +169,7 @@ class Dashboard extends Component {
               <input type="number" name="rate" placeholder="Rate 1/10" />
               <input type="file" name="imagepath" />
               <input type="text" name="author" placeholder="author" />
-              <input type="text" name="post" placeholder="Blog" />
+             
               <input type="text" name="date" placeholder="2020-12-31" />
               <input type="text" name="itchio" placeholder="link" />
               <input type="submit" name="submit" />
@@ -306,7 +322,7 @@ class Dashboard extends Component {
                   </span>
                 </div>
 
-                <div className="box">
+                <div className="box" style={{display: "none"}}>
                   <span
                     className="btn icon"
                     data-action="code"
@@ -319,7 +335,7 @@ class Dashboard extends Component {
                   <span
                     className="btn icon"
                     data-action="insertImage"
-                    title="Show "
+                    title="insert image "
                   >
                     <img src={Showhtml} alt="show html" />
                   </span>
