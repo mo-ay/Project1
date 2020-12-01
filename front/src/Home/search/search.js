@@ -28,7 +28,7 @@ class Search extends Component {
   render() {
     return (
       <div className="Search">
-        <div>
+        <div className="search2">
           <img
             src={logo}
             alt="Indie Bite"

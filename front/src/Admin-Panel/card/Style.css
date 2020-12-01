@@ -8,11 +8,7 @@
 
 }
 
-.bodyDash {
-  margin: auto;
-  width: 40vw;
 
-}
 
 
 
@@ -54,10 +50,8 @@
 
 /*! ____________________ Card ____________________*/
 
-.cardContainer {
+.cardContainerAll {
   justify-content: center;
-  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 1);
-  border-radius: 50px;
   margin: 10px 120px;
   padding: 10px 10px;
   display: flex;
@@ -294,7 +288,7 @@
   }
 
 
-  .cardContainer {
+  .cardContainerAll {
 
     margin: 10px;
 
@@ -305,7 +299,7 @@
 
 
 
-  .cardContainer {
+  .cardContainerAll {
     margin: 20px;
   }
 
@@ -318,7 +312,7 @@
 }
 
 @media screen and (min-width:801px) and (max-width:874px) {
-  .cardContainer {
+  .cardContainerAll {
     margin: 50px;
 
   }

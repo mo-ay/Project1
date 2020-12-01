@@ -1,16 +1,13 @@
 import React, { Component } from "react";
 import "./page.css";
-<<<<<<< HEAD
 import Particles from 'react-particles-js';
 
-=======
 import Facebtn from './shareBtn'
 // import ShareBtn from 'react-share-button'
 
 // import Facebook from 'react-sharingbuttons/dist/buttons/Facebook'
 // import Twitter from 'react-sharingbuttons/dist/buttons/Twitter'
 // import 'react-sharingbuttons/dist/main.css'
->>>>>>> e6546b32ff6eeae13adaa86cba690cca52fcd199
 
 class CardSelected extends Component {
   state = {

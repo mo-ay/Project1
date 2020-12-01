@@ -1,6 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
 
 
+.Search{
+}
+.searchHead{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
 .searchButton {
   width: 40px;
   height: 36px;
@@ -29,5 +37,5 @@
 }
 
 .dashSearch form{
-  margin-left: 35vw;
+  margin: auto;
 }

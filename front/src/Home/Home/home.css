@@ -47,12 +47,12 @@ h2 {
 .header {
   display: flex;
   flex-direction: row;
-  background-color: red;
+  flex-wrap: wrap;
 }
 
 .logo {
   width: 120px;
-  margin: 10px 5px 5px 10px;
+  margin: 10px 5px -10px 10px;
   transform: rotate(0deg);
   transition: all .5s;
   transform-origin: center;
@@ -70,7 +70,8 @@ form {
   position: relative;
   display: flex;
   flex-wrap: nowrap;
-  margin-left: 22.5rem;
+  align-self: flex-end;
+  margin-left: 15rem;
   height: 36px;
 }
 
