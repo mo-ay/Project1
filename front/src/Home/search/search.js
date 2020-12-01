@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./search.css";
 import "./w3.css";
+import logo from "./indie_bite-01.svg"
 //  import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 class Search extends Component {
@@ -27,9 +28,9 @@ class Search extends Component {
   render() {
     return (
       <div className="Search">
-        <div>
+        <div className="search2">
           <img
-            src="./img/indie_bite-01.svg"
+            src={logo}
             alt="Indie Bite"
             className="logo"
           />

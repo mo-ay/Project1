@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
-
+import "./categories.css"
+import trash from "../../trash1.png"
 class Category extends Component{
     state={
         category:[]
@@ -59,14 +60,14 @@ class Category extends Component{
 
         <div className="adminCategories">
             
-                <form   onSubmit={this.createCategory}>
-                <input type="text" name="categoryname" placeholder="Create New Category"></input>
-                <input type="submit" value="Create" />
+                <form   onSubmit={this.createCategory} className="myForm">
+                <input type="text" name="categoryname" placeholder="Create New Category" className="searchText"></input>
+                <input type="submit" value="Create" className="submit" />
                 
             </form>
-            <ul>
-             {this.state.category.map(cat=> <li key={cat.id}> {cat.categories} <span style={{color:"red",margin:"20px"}} onClick={()=>this.removeCategory(cat.id)} > 
-              &times;</span></li>,<br></br>)}
+            <ul className="gameCategories">
+             {this.state.category.map(cat=> <li key={cat.id}> {cat.categories} <span title="delete" className="delete" style={{color:"red",margin:"20px"}} onClick={()=>this.removeCategory(cat.id)} > <img src={trash} className="trash"/>
+              </span></li>)}
             </ul>
             </div>   
 

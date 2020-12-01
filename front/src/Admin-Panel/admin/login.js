@@ -1,6 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import "./login.css"
+import Particles from "react-particles-js";
 
 class login extends React.Component{
 
@@ -48,14 +49,16 @@ class login extends React.Component{
         return(
             <div className="login">
               <img src="../../indie_bite-01.png" />
-              <h4 className="admins">Administration Only</h4>
-            <form onSubmit = {this.loginCheck}>
+            <form onSubmit = {this.loginCheck} className="loginForm"><br></br>
                 
                 <input type="text" name ="adminName" placeholder="Username" className="field" />
                 <input type="password" name ="adminPassword" className="field" placeholder="Password" />
                 <button type = "submit" className="submitButton" className="subButton" ><span>Login</span></button>
 
             </form>
+            <div className="particles-login">
+          <Particles />
+        </div>
             </div>
         )
     }

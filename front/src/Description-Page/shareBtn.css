@@ -1,0 +1,17 @@
+.shrbtn  *{
+margin: 0;
+  background-color: transparent;
+}
+
+.mediaButton{
+  width: 30px;
+}
+
+.media{
+  display: flex;
+}
+
+
+.twitter{
+  width: 35px;
+}

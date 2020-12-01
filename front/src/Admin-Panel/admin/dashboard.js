@@ -108,9 +108,8 @@ class Dashboard extends Component {
     }
   }
   createFunction = async (e) => {
-    e.preventDefault();
     const url = "http://localhost:8001/addgame";
-   /* const body = {
+    /* const body = {
       name: e.target.name.value,
       rate: e.target.rate.value,
      // imagepath: e.target.imagepath.value,
@@ -120,34 +119,30 @@ class Dashboard extends Component {
       itchio_link: e.target.itchio.value,
     };*/
     const visuellView = document.getElementsByClassName("visuell-view")[0];
-      let post = visuellView.innerHTML;
-      
-    
-    let form = new FormData();
-    form.append('name',e.target.name.value)
-    form.append('rate',e.target.rate.value)
-    //const filesArray = [...e.target.fileField.files]
-    
-    const file = e.target.imagepath.files[0];
-    form.append('imagepath',file)
-    form.append('author',e.target.author.value)
-    form.append('post',post)
-    form.append('date',e.target.date.value)
-    form.append('itchio_link',e.target.itchio.value)
+    let post = visuellView.innerHTML;
 
-    console.log(form.get('imagepath'));
-    
+    let form = new FormData();
+    form.append("name", e.target.name.value);
+    form.append("rate", e.target.rate.value);
+    //const filesArray = [...e.target.fileField.files]
+
+    const file = e.target.imagepath.files[0];
+    form.append("imagepath", file);
+    form.append("author", e.target.author.value);
+    form.append("post", post);
+    form.append("date", e.target.date.value);
+    form.append("itchio_link", e.target.itchio.value);
+
+    console.log(form.get("imagepath"));
+
     const response = await fetch(url, {
       method: "POST",
-     
-      body:form
+
+      body: form,
     });
-    const result=await response.status;
-       
-       alert(result)
-      
-       
-       
+    const result = await response.status;
+
+    alert(result);
   };
 
   render() {
@@ -157,211 +152,220 @@ class Dashboard extends Component {
           <Search />
         </div>
 
-        <main className="container">
-          <div className="Create">
-            <form
-              method="POST"
-              encType="multipart/form-data"
-              onSubmit={this.createFunction}
-              className="subForm"
-            >
-              <input type="text" name="name" placeholder="Name" />
-              <input type="number" name="rate" placeholder="Rate 1/10" />
-              <input type="file" name="imagepath" />
-              <input type="text" name="author" placeholder="author" />
-             
-              <input type="text" name="date" placeholder="2020-12-31" />
-              <input type="text" name="itchio" placeholder="link" />
-              <input type="submit" name="submit" />
-            </form>
-            <div></div>
-          </div>
+        <div className="editing">
+          <div className="editorContainer">
+            <div className="editor">
+              <div className="toolbar">
+                <div className="line">
+                  <div className="box">
+                    <span
+                      className="btn icon smaller"
+                      data-action="bold"
+                      title="Bold"
+                    >
+                      <img src={Bold} alt="bold" />
+                    </span>
+                    <span
+                      className="btn icon smaller"
+                      data-action="italic"
+                      title="Italic"
+                    >
+                      <img src={Italic} alt="Italic" />
+                    </span>
+                    <span
+                      className="btn icon smaller"
+                      data-action="underline"
+                      title="Underline"
+                    >
+                      <img src={Underline} alt="underline" />
+                    </span>
+                    <span
+                      className="btn icon smaller"
+                      data-action="strikeThrough"
+                      title="Strike through"
+                    >
+                      <img src={Strikethrough} alt="strikethrough" />
+                    </span>
+                  </div>
 
-          <div className="editor">
-            <div className="toolbar">
-              <div className="line">
-                <div className="box">
-                  <span
-                    className="btn icon smaller"
-                    data-action="bold"
-                    title="Bold"
-                  >
-                    <img src={Bold} alt="bold" />
-                  </span>
-                  <span
-                    className="btn icon smaller"
-                    data-action="italic"
-                    title="Italic"
-                  >
-                    <img src={Italic} alt="Italic" />
-                  </span>
-                  <span
-                    className="btn icon smaller"
-                    data-action="underline"
-                    title="Underline"
-                  >
-                    <img src={Underline} alt="underline" />
-                  </span>
-                  <span
-                    className="btn icon smaller"
-                    data-action="strikeThrough"
-                    title="Strike through"
-                  >
-                    <img src={Strikethrough} alt="strikethrough" />
-                  </span>
+                  <div className="box">
+                    <span className="btn icon has-submenu">
+                      <img src={Downarrow} alt="Downarrow" />
+                      <div className="submenu">
+                        <span
+                          className="btn icon"
+                          data-action="justifyLeft"
+                          title="Justify left"
+                        >
+                          <img src={Justifyleft} alt="justify left" />
+                        </span>
+                        <span
+                          className="btn icon"
+                          data-action="justifyCenter"
+                          title="Justify center"
+                        >
+                          <img src={Justifycenter} alt="Justify center" />
+                        </span>
+                        <span
+                          className="btn icon"
+                          data-action="justifyRight"
+                          title="Justify right"
+                        >
+                          <img src={Justifyright} alt="Justify right" />
+                        </span>
+                        <span
+                          className="btn icon"
+                          data-action="formatBlock"
+                          title="Justify block"
+                        >
+                          <img src={Justifyblock} alt="justify block" />
+                        </span>
+                      </div>
+                    </span>
+                    <span
+                      className="btn icon"
+                      data-action="insertOrderedList"
+                      title="Insert ordered list"
+                    >
+                      <img src={Insertorderlist} alt="insert ordered list" />
+                    </span>
+                    <span
+                      className="btn icon"
+                      data-action="insertUnorderedList"
+                      title="Insert unordered list"
+                    >
+                      <img
+                        src={Insertunorderedlist}
+                        alt="Insert unordered list"
+                      />
+                    </span>
+                    <span
+                      className="btn icon"
+                      data-action="outdent"
+                      title="Outdent"
+                    >
+                      <img src={Outdent} alt="Outdent" />
+                    </span>
+                    <span
+                      className="btn icon"
+                      data-action="indent"
+                      title="Indent"
+                    >
+                      <img src={Indent} alt="indent" />
+                    </span>
+                  </div>
+                  <div className="box">
+                    <span
+                      className="btn icon"
+                      data-action="insertHorizontalRule"
+                      title="Insert horizontal rule"
+                    >
+                      <img
+                        src={Inserthorizontal}
+                        alt="Insert horizontal rule"
+                      />
+                    </span>
+                  </div>
                 </div>
+                <div className="line">
+                  <div className="box">
+                    <span
+                      className="btn icon smaller"
+                      data-action="undo"
+                      title="Undo"
+                    >
+                      <img src={Undo} alt="undo" />
+                    </span>
+                    <span
+                      className="btn icon"
+                      data-action="removeFormat"
+                      title="Remove format"
+                    >
+                      <img src={Removeformat} alt="Remove format" />
+                    </span>
+                  </div>
 
-                <div className="box">
-                  <span className="btn icon has-submenu">
-                    <img src={Downarrow} alt="Downarrow" />
-                    <div className="submenu">
-                      <span
-                        className="btn icon"
-                        data-action="justifyLeft"
-                        title="Justify left"
-                      >
-                        <img src={Justifyleft} alt="justify left" />
-                      </span>
-                      <span
-                        className="btn icon"
-                        data-action="justifyCenter"
-                        title="Justify center"
-                      >
-                        <img src={Justifycenter} alt="Justify center" />
-                      </span>
-                      <span
-                        className="btn icon"
-                        data-action="justifyRight"
-                        title="Justify right"
-                      >
-                        <img src={Justifyright} alt="Justify right" />
-                      </span>
-                      <span
-                        className="btn icon"
-                        data-action="formatBlock"
-                        title="Justify block"
-                      >
-                        <img src={Justifyblock} alt="justify block" />
-                      </span>
-                    </div>
-                  </span>
-                  <span
-                    className="btn icon"
-                    data-action="insertOrderedList"
-                    title="Insert ordered list"
-                  >
-                    <img src={Insertorderlist} alt="insert ordered list" />
-                  </span>
-                  <span
-                    className="btn icon"
-                    data-action="insertUnorderedList"
-                    title="Insert unordered list"
-                  >
-                    <img
-                      src={Insertunorderedlist}
-                      alt="Insert unordered list"
-                    />
-                  </span>
-                  <span
-                    className="btn icon"
-                    data-action="outdent"
-                    title="Outdent"
-                  >
-                    <img src={Outdent} alt="Outdent" />
-                  </span>
-                  <span
-                    className="btn icon"
-                    data-action="indent"
-                    title="Indent"
-                  >
-                    <img src={Indent} alt="indent" />
-                  </span>
-                </div>
-                <div className="box">
-                  <span
-                    className="btn icon"
-                    data-action="insertHorizontalRule"
-                    title="Insert horizontal rule"
-                  >
-                    <img src={Inserthorizontal} alt="Insert horizontal rule" />
-                  </span>
+                  <div className="box">
+                    <span
+                      className="btn icon smaller"
+                      data-action="createLink"
+                      title="Insert Link"
+                    >
+                      <img src={Insertlink} alt="insert link" />
+                    </span>
+                    <span
+                      className="btn icon smaller"
+                      data-action="unlink"
+                      title="Unlink"
+                    >
+                      <img src={Unlink} alt="unlink" />
+                    </span>
+                  </div>
+
+                  <div className="box" style={{ display: "none" }}>
+                    <span
+                      className="btn icon"
+                      data-action="code"
+                      title="Show HTML-Code"
+                    >
+                      <img src={Showhtml} alt="show html" />
+                    </span>
+                  </div>
+                  <div className="box">
+                    <span
+                      className="btn icon"
+                      data-action="insertImage"
+                      title="insert image "
+                    >
+                      <img src={Showhtml} alt="show html" />
+                    </span>
+                  </div>
                 </div>
               </div>
-              <div className="line">
-                <div className="box">
-                  <span
-                    className="btn icon smaller"
-                    data-action="undo"
-                    title="Undo"
-                  >
-                    <img src={Undo} alt="undo" />
-                  </span>
-                  <span
-                    className="btn icon"
-                    data-action="removeFormat"
-                    title="Remove format"
-                  >
-                    <img src={Removeformat} alt="Remove format" />
-                  </span>
+              <div className="content-area">
+                <div
+                  className="visuell-view"
+                  contentEditable="true"
+                  suppressContentEditableWarning="true"
+                >
+                  write here..
                 </div>
-
-                <div className="box">
-                  <span
-                    className="btn icon smaller"
-                    data-action="createLink"
-                    title="Insert Link"
-                  >
-                    <img src={Insertlink} alt="insert link" />
-                  </span>
-                  <span
-                    className="btn icon smaller"
-                    data-action="unlink"
-                    title="Unlink"
-                  >
-                    <img src={Unlink} alt="unlink" />
-                  </span>
-                </div>
-
-                <div className="box" style={{display: "none"}}>
-                  <span
-                    className="btn icon"
-                    data-action="code"
-                    title="Show HTML-Code"
-                  >
-                    <img src={Showhtml} alt="show html" />
-                  </span>
-                </div>
-                <div className="box">
-                  <span
-                    className="btn icon"
-                    data-action="insertImage"
-                    title="insert image "
-                  >
-                    <img src={Showhtml} alt="show html" />
-                  </span>
-                </div>
+                <textarea className="html-view"></textarea>
               </div>
             </div>
-            <div className="content-area">
-              <div
-                className="visuell-view"
-                contentEditable="true"
-                suppressContentEditableWarning="true"
+            <div className="create">
+              <form
+                method="POST"
+                encType="multipart/form-data"
+                onSubmit={this.createFunction}
+                className="subForm"
               >
-                write here..
-              </div>
-              <textarea className="html-view"></textarea>
+                <input type="text" name="name" placeholder="Name" />
+                <input
+                  type="number"
+                  name="rate"
+                  placeholder="Rate 1/10"
+                  max="10"
+                  min="0"
+                />
+                <input type="text" name="author" placeholder="Author" />
+                <input type="date" name="date" placeholder="YYYY-MM-DD" />
+                <input type="link" name="itchio" placeholder="link" />
+                <input type="file" name="imagepath" id="upload" />
+
+                <input type="submit" name="submit" className="submitButton" />
+              </form>
             </div>
           </div>
-
           <div className="blogs">
-            <h2>blogs</h2>
-            <div>
+            <div className="myBlogs">
               <Category />
+              <h2>blogs:</h2>
+
               <AllCards />
             </div>
           </div>
-        </main>
+        </div>
 
         {/* <Create /> */}
       </div>

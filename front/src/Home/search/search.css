@@ -16,3 +16,9 @@
 .searchButton:focus {
   outline: none;
 }
+
+.search2{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; 
+}

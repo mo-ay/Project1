@@ -1,0 +1,35 @@
+.gameCategories{
+  flex-direction: row;
+  flex-wrap: wrap;
+  column-count: 2;
+  -webkit-column-count: 2;
+
+}
+
+.delete{
+  cursor: pointer;
+}
+
+.trash{
+  width: 17px;
+  height: 17px;
+  float: right;
+  margin-right: 9rem;
+
+}
+
+.searchText{
+  border-radius: 20px;
+  width: 250px;
+}
+
+.submit{
+  width: 100px;
+  border-radius: 20px;
+  background-color: transparent;
+}
+
+.myForm{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

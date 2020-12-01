@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
-body{
+
+body {
   justify-content: center;
 }
 
@@ -46,11 +47,12 @@ h2 {
 .header {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .logo {
   width: 120px;
-  margin: 10px 5px 5px 10px;
+  margin: 10px 5px -10px 10px;
   transform: rotate(0deg);
   transition: all .5s;
   transform-origin: center;
@@ -68,7 +70,8 @@ form {
   position: relative;
   display: flex;
   flex-wrap: nowrap;
-  margin-left: 22.5rem;
+  align-self: flex-end;
+  margin-left: 15rem;
   height: 36px;
 }
 
@@ -188,7 +191,7 @@ form {
   width: 100%;
   height: 100%;
   border-radius: 15px;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.9);
   z-index: 2;
   transition: 0.5s;
   opacity: 0;
@@ -215,16 +218,19 @@ form {
   opacity: 0;
   transform: translateY(30px);
   transition: 0.5s;
+  width: 100%;
 }
 
-.card .info h3 {
+.card .info h5 {
   margin: 0;
+  width: 100%;
 }
 
 .card .info p {
   letter-spacing: 1px;
   font-size: 15px;
   margin-top: 8px;
+  width: 100%;
 }
 
 
@@ -444,30 +450,48 @@ form {
   margin: 10px;
 }
 
-@media screen and (max-width:500px){
-  .card{
+@media screen and (max-width:500px) {
+  .card {
     width: 200px;
     padding: 0;
     margin: 0;
 
   }
 
-  .cardContainer, .all, .inner{
+  .cardContainer,
+  .all,
+  .inner {
     padding: 0;
     margin: 0;
     width: 100vw;
     box-shadow: none;
   }
 
-  .mainHome{
+  .mainHome {
     width: 100vw;
   }
 
-  .mainBody{
+  .mainBody {
     width: 100vw;
   }
 
-  .all::-webkit-scrollbar{
+  .all::-webkit-scrollbar {
     display: none;
   }
+}
+
+
+.particles {
+  width: 100vw;
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+canvas {
+  background-color: transparent;
+  z-index: -100;
+  position: fixed;
 }

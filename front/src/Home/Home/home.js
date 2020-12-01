@@ -4,6 +4,8 @@ import Search from "../search/search";
 //import { withRouter } from 'react-router-dom';
 //import { useHistory} from 'react-router-dom';
 import Category from "../categories-home/categories-home";
+import Particles from 'react-particles-js';
+
 
 class Home extends Component {
   dir = "../../../../back/";
@@ -32,6 +34,10 @@ class Home extends Component {
   render() {
     return (
       <div className="mainBody">
+        <div className="particles">
+          <Particles />
+        </div>
+
         <div className="mainHome">
           <div className="header">
             <Search />
@@ -77,9 +83,13 @@ class Home extends Component {
                       <h5>{g.name}</h5>
                       {/* <h5> Rating: {g.rate}</h5> */}
                       <p>Posted On: {g.date}</p>
-                      <button onClick={(event) =>
+                      <button
+                        onClick={(event) =>
                           (window.location.href = `./description/${g.id}`)
-                        }>Read More</button>
+                        }
+                      >
+                        Read More
+                      </button>
                       <div className="gameName">
                         <h5>{g.name}</h5>
                       </div>
@@ -101,9 +111,13 @@ class Home extends Component {
                       <h5>{g.name}</h5>
                       {/* <h5> Rating: {g.rate}</h5>
                          <p>Release Date: {g.releasdate}</p> */}
-                      <button onClick={(event) =>
+                      <button
+                        onClick={(event) =>
                           (window.location.href = `./description/${g.id}`)
-                        }>Read More</button>
+                        }
+                      >
+                        Read More
+                      </button>
                       <div className="gameName">
                         <h5>{g.name}</h5>
                       </div>
