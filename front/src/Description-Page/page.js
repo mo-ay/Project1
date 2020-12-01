@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import "./page.css";
-import Particles from 'react-particles-js';
+import Particles from "react-particles-js";
 
-import Facebtn from './shareBtn'
+import Facebtn from "./shareBtn";
 // import ShareBtn from 'react-share-button'
 
 // import Facebook from 'react-sharingbuttons/dist/buttons/Facebook'
@@ -26,12 +26,12 @@ class CardSelected extends Component {
     //console.log(result);
     this.setState({ oneGame: result });
     console.log(this.state.oneGame);
-    console.log(window.document.location.href)
+    console.log(window.document.location.href);
   };
   //  sharingButtons = () => {
   //   const url = 'https://github.com/caspg/react-sharingbuttons'
   //   const shareText = 'Check this site!'
-  
+
   //   return (
   //     <div>
   //       <Facebook url={url} />
@@ -42,19 +42,17 @@ class CardSelected extends Component {
 
   render() {
     return (
-      
       <div className="main">
-                  <div className="particles"><Particles /></div>  
+        <div className="particles">
+          <Particles />
+        </div>
 
         <div className="body">
           <div className="CardSelected">
             <div>
               {this.state.oneGame.map((g) => (
                 <div key={g.id}>
-                  <img
-                    src={g.imagepath}
-                    className="cover"
-                  />
+                  <img src={g.imagepath} className="cover" />
                   <h3 className="name">{g.name}</h3>
 
                   <div className="aboutBlog">
@@ -63,29 +61,33 @@ class CardSelected extends Component {
                         <li>Author: {g.author}</li>
                         <li>Game Review: {g.rate}/10</li>
                         <li>Posted On: {g.date}</li>
+                        <li>  &nbsp;</li>
                         <li>
                           {" "}
-                          <a href={g.itchio_link}> Play the game on itchio</a>
+                          <a className="link" href={g.itchio_link}> <span>Play the game on itchio</span></a>
                         </li>
-                        {/* {this.sharingButtons()} */}
-                        <Facebtn />
+                        <li>  &nbsp;</li>
+                
+                        <li>   {/* {this.sharingButtons()} */}
+                        <Facebtn /></li>
+                      
                       </ul>
                     </div>
-                    <div className="blog" dangerouslySetInnerHTML={{__html:g.post}}  ></div>
-                   </div>
-
+                    <div
+                      className="blog"
+                      dangerouslySetInnerHTML={{ __html: g.post }}
+                    ></div>
+                      
+                  </div>
                 </div>
               ))}
             </div>
-          </div>
-          <div className="suggested">
-            <h4>Suggested Blog :</h4>
-
-            <div className="card"></div>
+        
           </div>
           <a href="/" className="back">
             Back to Blogs Page
           </a>
+     
         </div>
       </div>
     );

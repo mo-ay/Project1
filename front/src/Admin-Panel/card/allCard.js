@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./Style.css";
+import trash from "../../trash.png"
 //import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 class Card extends Component {
@@ -56,17 +57,12 @@ class Card extends Component {
     return (
       <div className="bodyDash">
         <div className="cardContainerAll">
-          {this.state.games.slice(0, 4).map((g) => (
+          {this.state.games.map((g) => (
             <div key={g.id}>
               <div className="card">
                 <img src={g.imagepath} />
                 <div className="info">
-                  <span
-                    style={{ color: "red", margin: "20px" }}
-                    onClick={() => this.removeGame(g.id)}
-                  >
-                    &times;
-                  </span>
+                  
                   <h5>{g.name}</h5>
                   <h5> Rating: {g.rate}/10</h5>
                   <p>Author: {g.author}</p>
@@ -78,7 +74,11 @@ class Card extends Component {
                   >
                     Read More
                   </button>
-
+                    <span className="myTrash"
+                      onClick={() => this.removeGame(g.id)}
+                    >
+                      <img className="myTrashs" src={trash}/>
+                    </span>
                   {/* <input type="submit" name="submit" value={g.id} /> */}
 
                   <div className="gameName">

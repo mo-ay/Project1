@@ -108,7 +108,6 @@ class Dashboard extends Component {
     }
   }
   createFunction = async (e) => {
-    e.preventDefault();
     const url = "http://localhost:8001/addgame";
     /* const body = {
       name: e.target.name.value,

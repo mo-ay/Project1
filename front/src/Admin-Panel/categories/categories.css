@@ -18,3 +18,18 @@
 
 }
 
+.searchText{
+  border-radius: 20px;
+  width: 250px;
+}
+
+.submit{
+  width: 100px;
+  border-radius: 20px;
+  background-color: transparent;
+}
+
+.myForm{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

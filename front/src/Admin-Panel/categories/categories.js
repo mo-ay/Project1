@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import "./categories.css"
-import trash from "../../trash.png"
+import trash from "../../trash1.png"
 class Category extends Component{
     state={
         category:[]
@@ -60,9 +60,9 @@ class Category extends Component{
 
         <div className="adminCategories">
             
-                <form   onSubmit={this.createCategory}>
-                <input type="text" name="categoryname" placeholder="Create New Category"></input>
-                <input type="submit" value="Create" />
+                <form   onSubmit={this.createCategory} className="myForm">
+                <input type="text" name="categoryname" placeholder="Create New Category" className="searchText"></input>
+                <input type="submit" value="Create" className="submit" />
                 
             </form>
             <ul className="gameCategories">
