@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import "./page.css";
+import Particles from 'react-particles-js';
+
 
 class CardSelected extends Component {
   state = {
@@ -22,7 +24,10 @@ class CardSelected extends Component {
 
   render() {
     return (
+      
       <div className="main">
+                  <div className="particles"><Particles /></div>  
+
         <div className="body">
           <div className="CardSelected">
             <div>

@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
-body{
+
+body {
   justify-content: center;
 }
 
@@ -46,6 +47,7 @@ h2 {
 .header {
   display: flex;
   flex-direction: row;
+  background-color: red;
 }
 
 .logo {
@@ -444,30 +446,48 @@ form {
   margin: 10px;
 }
 
-@media screen and (max-width:500px){
-  .card{
+@media screen and (max-width:500px) {
+  .card {
     width: 200px;
     padding: 0;
     margin: 0;
 
   }
 
-  .cardContainer, .all, .inner{
+  .cardContainer,
+  .all,
+  .inner {
     padding: 0;
     margin: 0;
     width: 100vw;
     box-shadow: none;
   }
 
-  .mainHome{
+  .mainHome {
     width: 100vw;
   }
 
-  .mainBody{
+  .mainBody {
     width: 100vw;
   }
 
-  .all::-webkit-scrollbar{
+  .all::-webkit-scrollbar {
     display: none;
   }
+}
+
+
+.particles {
+  width: 100vw;
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+canvas {
+  background-color: transparent;
+  z-index: -100;
+  position: fixed;
 }
