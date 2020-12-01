@@ -7,6 +7,7 @@ import  {BrowserRouter, Switch, Route, Router}from 'react-router-dom'
 import  Login from './Admin-Panel/admin/login'
 import  Dashboard from './Admin-Panel/admin/dashboard'
 import Page from './Description-Page/page'
+import Landing from './LandingPage/Test/Landing'
 
 ReactDOM.render(
  
@@ -23,6 +24,10 @@ ReactDOM.render(
           
             <Login />
           </Route>
+          {/* <Route path="/">
+          
+            <Landing />
+          </Route> */}
           
           <Route path="/dashboard">
             <Dashboard />

@@ -51,7 +51,12 @@ class Search extends Component{
                          <h5> Rating: {g.rate}</h5>
                          <p>author: {g.author}</p>
                          <p> date: {g.date}</p>
+                         <button
+                        onClick={(event) =>
+                          (window.location.href = `./description/${g.id}`)
+                        }>Read More</button>
                          </div>
+                         
 
                         <div className="gameName">
                         <h5>{g.name}</h5>

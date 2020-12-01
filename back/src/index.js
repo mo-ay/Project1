@@ -1,9 +1,11 @@
 
 import app from './app'
 import db from './db'
+
 const path = require('path');
 const multer = require('multer');
 const helpers = require('./helper');
+
 
 //test your database connection
 app.get('/', function (req, res) {
@@ -90,7 +92,6 @@ const storage = multer.diskStorage({
   }
 });
 
-
 let upload = multer({ storage: storage, fileFilter: helpers.imageFilter }).single('imagepath');
 
     upload(req, res, function(err) {
@@ -101,6 +102,7 @@ let upload = multer({ storage: storage, fileFilter: helpers.imageFilter }).singl
             return res.send(req.fileValidationError);
         }
         else if (!req.file) {
+          console.log("S")
             return res.send('Please select an image to upload');
         }
         else if (err instanceof multer.MulterError) {
@@ -122,30 +124,27 @@ let upload = multer({ storage: storage, fileFilter: helpers.imageFilter }).singl
         })
         //res.send(`You have uploaded this image: <hr/><img src="${req.file}" width="500"><hr /><a href="./">Upload another image</a>`);
       });
-
-
-
-
-
-
-
-
-
-  
-
-
- 
- });
+});
 
  //-----------------------------------------------------------------//
  //                 Remove Game -- Tested on POSTMAN                //
  //-----------------------------------------------------------------//
- app.delete('/deletegame', (req, res)=>{
-  console.log(req.body)                                            
-  db.query('DELETE FROM games WHERE `id`=?',[req.body.id],(err,rows,fields)=>{
+ app.delete('/deletegame/:id', (req, res)=>{
+    const id =req.params.id;  
+    let message=""
+    
+  const firstQuery=db.query('DELETE FROM gamecategorys where gameid= '+id ,(err,rows,fields)=>{ 
     if (err)throw err;
-    res.send('GAME HAS BEEN DELETED');
+    message+="Foreign Key has been deleted"
+    
+    
   });
+  if (firstQuery){
+    db.query('DELETE FROM games where id= '+id ,(err,rows,fields)=>{ 
+      if (err)throw err;
+      res.send(message+' and GAME HAS BEEN DELETED');
+  })}
+
  });
  //-----------------------------------------------------------------//
  //                 Update Game -- Tested on POSTMAN                //
@@ -153,7 +152,7 @@ let upload = multer({ storage: storage, fileFilter: helpers.imageFilter }).singl
 
  app.put('/updategame', (req, res)=>{
                                               
-  db.query('UPDATE `games` SET `name`=?,`rate`=?,`imagepath`=?,`author`=?,`post`=?, `date=?`,`itchio_link` WHERE `id`=?',
+  db.query('UPDATE `games` SET `name`=?, `rate`=?, `imagepath`=?, `author`=?, `post`=?, `date`=?, `itchio_link`=? WHERE `id`=?',
   [req.body.name, req.body.rate, req.body.imagepath, req.body.author, req.body.post, req.body.date, req.body.itchio_link,  req.body.id],
   (err,rows,fields)=>{
     if (err)throw err;
@@ -256,16 +255,28 @@ app.get('/category',(req,res)=>{
 //-----------------------------------------------------------------//
  //                 Remove categories-- Tested on POSTMAN                //
  //-----------------------------------------------------------------//
- app.delete('/deletecategory', (req, res)=>{
+ app.delete('/deletecategory/:id', (req, res)=>{
                                            
-  db.query('DELETE FROM category WHERE `id`=?',[req.body.id],(err,rows,fields)=>{
+  const id =req.params.id;  
+    let message=""
+    
+  const firstQuery=db.query('DELETE FROM gamecategorys where categoryid= '+id ,(err,rows,fields)=>{ 
     if (err)throw err;
-    res.send('Category  HAS BEEN DELETED');
+    message+="Foreign Key has been deleted"
+    
+    
   });
+  if (firstQuery){
+    db.query('DELETE FROM category where id= '+id ,(err,rows,fields)=>{ 
+      if (err)throw err;
+      res.send(message+' and Category HAS BEEN DELETED');
+  })}
  });
 
 
 //******************Categories****************** */
+
+
 
 
 app.listen( 8001, () => console.log('server listening on port 8001') )
