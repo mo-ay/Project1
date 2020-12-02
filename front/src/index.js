@@ -24,17 +24,18 @@ ReactDOM.render(
           
             <Login />
           </Route>
-          <Route path="/">
           
-            <Landing />
-          </Route>
           
           <Route path="/dashboard">
             <Dashboard />
           </Route>
-          <Route path="/home">
+          <Route path="/">
             <App />
           </Route>
+          {/* <Route path="/">
+          
+            <Landing />
+          </Route> */}
           
         </Switch>
         </BrowserRouter>

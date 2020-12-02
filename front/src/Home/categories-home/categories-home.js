@@ -2,10 +2,15 @@ import React,{Component} from 'react';
 import "./categories-home.css"
 
 class Category extends Component{
-    state={
-        category:[]
-    }
 
+    
+    constructor(props) {
+        super(props);
+        this.state = {
+            category:[]
+        };
+      }
+    
 
 
     async componentDidMount(){
@@ -59,6 +64,19 @@ class Category extends Component{
      this.componentDidMount();
         }
 
+
+        filterGame =async(e)=>{
+           
+            let id=e.target.value
+            console.log(id)
+            const url=`http://localhost:8001/filtergames/${id}`;
+           
+            const response=await fetch(url)
+            const result= await response.json()
+            //console.log(result)
+            this.props.filter(result)
+    
+        }
  
 
     
@@ -69,8 +87,8 @@ class Category extends Component{
 
                    <div className="allBlogsTop homeCategories">
                        <h2 className="allBlogsHeading">All Blogs:</h2>
-                        <select  name="" id="selection">{this.state.category.map(cat=> 
-                          <option key={cat.id} >{cat.categories}</option>)}
+                        <select onChange={this.filterGame} name="" id="selection">{this.state.category.map(cat=> 
+                          <option  key={cat.id} value={cat.id} >{cat.categories}</option>)}
                         </select>
                      </div>
 

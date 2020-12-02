@@ -120,7 +120,8 @@ let upload = multer({ storage: storage, fileFilter: helpers.imageFilter }).singl
         postData.imagepath = imagepath
         db.query('INSERT INTO games SET ?',postData,(err,rows,fields)=>{
           if (err)res.send(err);
-             res.send(rows)
+             res.send({rows,
+              message:"Game Added"})
         })
         //res.send(`You have uploaded this image: <hr/><img src="${req.file}" width="500"><hr /><a href="./">Upload another image</a>`);
       });
@@ -272,6 +273,19 @@ app.get('/category',(req,res)=>{
       res.send(message+' and Category HAS BEEN DELETED');
   })}
  });
+
+ app.get('/filtergames/:id', (req, res)=>{
+   let id=req.params.id
+   
+  db.query(`SELECT * FROM games , gamecategorys WHERE gamecategorys.categoryid = ${id} AND games.id = gamecategorys.gameid`,(err,rows,fields)=>{
+    if(err) throw err;
+    res.send(rows)
+  })
+})
+
+
+
+
 
 
 //******************Categories****************** */
