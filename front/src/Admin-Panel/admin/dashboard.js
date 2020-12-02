@@ -26,6 +26,9 @@ import Undo from "./img/undo.svg";
 import Unlink from "./img/unlink.svg";
 
 class Dashboard extends Component {
+
+  state={ categories:[] }
+
   componentDidMount() {
     const editor = document.getElementsByClassName("editor")[0];
     const toolbar = editor.getElementsByClassName("toolbar")[0];
@@ -106,6 +109,7 @@ class Dashboard extends Component {
     function ins(action) {
       document.execCommand("insertImage", 0, prompt("url"));
     }
+  
   }
   createFunction = async (e) => {
     e.preventDefault();
@@ -156,6 +160,15 @@ class Dashboard extends Component {
     e.target.itchio.value=""
 
   };
+
+  getCatProps= async (cat)=>{
+    console.log("ali", cat)
+    
+await this.setState({categories:cat})
+     
+    
+
+  }
 
   render() {
     return (
@@ -367,12 +380,23 @@ class Dashboard extends Component {
                 <input type="file" name="imagepath" id="upload" />
 
                 <input type="submit" name="submit" className="submitButton" />
+               
+                      <div>
+                        
+                        <select  name="" id="selection">{
+                        this.state.categories.map(cat=> 
+                          <option  key={cat.id} value={cat.id} >{cat.categories}</option>)}
+                        </select>
+                        </div> 
+
+
               </form>
+
             </div>
           </div>
           <div className="blogs">
             <div className="myBlogs">
-              <Category />
+              <Category getCat={this.getCatProps} />
               <h2>blogs:</h2>
 
               <AllCards />

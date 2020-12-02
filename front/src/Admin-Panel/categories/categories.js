@@ -20,6 +20,9 @@ class Category extends Component{
         
         console.log(this.state.category);
 
+
+        this.props.getCat(this.state.category)
+
     }
 
     createCategory =async(e)=>{
