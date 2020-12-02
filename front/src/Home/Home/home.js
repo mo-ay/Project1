@@ -11,7 +11,8 @@ class Home extends Component {
   dir = "../../../../back/";
   state = {
     games: [],
-    gamesByDate: [],
+    gamesByRate:[],
+    gamesByDate: []
   };
 
   async componentDidMount() {
@@ -19,9 +20,10 @@ class Home extends Component {
     const result = await response.json();
     //console.log(result);
     const resultDate = await result;
-    this.setState({ games: result });
-    const sorting = this.state.games.sort((a, b) => (a.rate > b.rate ? -1 : 1));
-    console.log(this.state.games);
+    this.setState({games:result})
+    this.setState({ gamesByRate: result });
+    const sorting = this.state.gamesByRate.sort((a, b) => (a.rate > b.rate ? -1 : 1));
+    console.log(this.state.gamesByRate);
 
     this.setState({ gamesByDate: result });
     const sortingDate = this.state.gamesByDate.sort((x, y) =>
@@ -30,7 +32,11 @@ class Home extends Component {
     console.log(this.state.gamesByDate);
     console.log(this.state.games);
   }
-
+   filter=(games)=>{
+    console.log("games",games);
+    this.setState({games})
+  }
+  
   render() {
     return (
       <div className="mainBody">
@@ -46,7 +52,7 @@ class Home extends Component {
           <h2 className="h2">Top Rated Blogs:</h2>
           <div className="cardContainer fiveCards">
             <div className="inner">
-              {this.state.games.slice(0, 4).map((g) => (
+              {this.state.gamesByRate.slice(0, 4).map((g) => (
                 <div key={g.id}>
                   <div className="card" data={g.id}>
                     <img src={g.imagepath} />
@@ -82,7 +88,7 @@ class Home extends Component {
                     <div className="info">
                       <h5>{g.name}</h5>
                       {/* <h5> Rating: {g.rate}</h5> */}
-                      <p>Posted On: {g.date}</p>
+                      <p>Posted On:{new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(g.date)))}</p>
                       <button
                         onClick={(event) =>
                           (window.location.href = `./description/${g.id}`)
@@ -100,7 +106,7 @@ class Home extends Component {
             </div>
           </div>
 
-          <Category />
+          <Category filter={this.filter}/>
           <div className=" all ">
             <div className="inner">
               {this.state.games.map((g) => (

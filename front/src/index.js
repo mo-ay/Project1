@@ -24,10 +24,7 @@ ReactDOM.render(
           
             <Login />
           </Route>
-          {/* <Route path="/">
           
-            <Landing />
-          </Route> */}
           
           <Route path="/dashboard">
             <Dashboard />
@@ -35,6 +32,10 @@ ReactDOM.render(
           <Route path="/">
             <App />
           </Route>
+          {/* <Route path="/">
+          
+            <Landing />
+          </Route> */}
           
         </Switch>
         </BrowserRouter>

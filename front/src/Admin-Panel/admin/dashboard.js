@@ -108,6 +108,7 @@ class Dashboard extends Component {
     }
   }
   createFunction = async (e) => {
+    e.preventDefault();
     const url = "http://localhost:8001/addgame";
     /* const body = {
       name: e.target.name.value,
@@ -143,10 +144,22 @@ class Dashboard extends Component {
     const result = await response.status;
 
     alert(result);
+
+    e.target.name.value="";
+    e.target.imagepath.files=null;
+    e.target.rate.value=0;
+    e.target.author.value="";
+     post = "";
+     visuellView.innerHTML = ""
+     
+    e.target.date.value=""
+    e.target.itchio.value=""
+
   };
 
   render() {
     return (
+      <div>
       <div className="mainContainer">
         <div>
           <Search />
@@ -349,7 +362,7 @@ class Dashboard extends Component {
                   min="0"
                 />
                 <input type="text" name="author" placeholder="Author" />
-                <input type="date" name="date" placeholder="YYYY-MM-DD" />
+                <input type="text" name="date" placeholder="2020-12-30" />
                 <input type="link" name="itchio" placeholder="link" />
                 <input type="file" name="imagepath" id="upload" />
 
@@ -368,6 +381,7 @@ class Dashboard extends Component {
         </div>
 
         {/* <Create /> */}
+      </div>
       </div>
     );
   }
