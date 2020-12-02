@@ -67,7 +67,7 @@ class Card extends Component {
                   <h5> Rating: {g.rate}/10</h5>
                   <p>Author: {g.author}</p>
                   <button
-                    button
+                    
                     onClick={(event) =>
                       (window.location.href = `./description/${g.id}`)
                     }
