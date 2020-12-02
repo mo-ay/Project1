@@ -147,6 +147,7 @@ class Dashboard extends Component {
 
   render() {
     return (
+      <div>
       <div className="mainContainer">
         <div>
           <Search />
@@ -368,6 +369,7 @@ class Dashboard extends Component {
         </div>
 
         {/* <Create /> */}
+      </div>
       </div>
     );
   }

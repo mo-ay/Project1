@@ -24,15 +24,15 @@ ReactDOM.render(
           
             <Login />
           </Route>
-          {/* <Route path="/">
+          <Route path="/">
           
             <Landing />
-          </Route> */}
+          </Route>
           
           <Route path="/dashboard">
             <Dashboard />
           </Route>
-          <Route path="/">
+          <Route path="/home">
             <App />
           </Route>
           
