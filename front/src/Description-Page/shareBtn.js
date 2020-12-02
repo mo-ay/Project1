@@ -13,14 +13,14 @@ class Facebtn extends Component {
     return (
       <div className="media">
         <div className="shrbtn">
-          <FacebookButton url={url} appId={2848830095385476}> 
-          <img src={facebook} className="mediaButton facebook"></img>
+          <FacebookButton url={url} appId={2848830095385476} className="Faceboook"> 
+          <img src={facebook} className="mediaButton facebookShare"></img>
           </FacebookButton>
         </div>
 
         <div className="shrbtn">
-          <TwitterButton url={url} appId={2848830095385476}> 
-          <img src={twitter} className="mediaButton twitter"></img>
+          <TwitterButton url={url} appId={2848830095385476} className="Twitter"> 
+          <img src={twitter} className="mediaButton twitterShare"></img>
             
           </TwitterButton>
         </div>

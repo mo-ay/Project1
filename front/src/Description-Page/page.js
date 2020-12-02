@@ -43,9 +43,7 @@ class CardSelected extends Component {
   render() {
     return (
       <div className="main">
-        <div className="particlesDescription">
-          <Particles />
-        </div>
+      
 
         <div className="body">
           <div className="CardSelected">
@@ -89,6 +87,9 @@ class CardSelected extends Component {
           </a>
      
         </div>
+        <div className="particlesDescription">
+          <Particles />
+        </div> 
       </div>
     );
   }

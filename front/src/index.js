@@ -29,13 +29,13 @@ ReactDOM.render(
           <Route path="/dashboard">
             <Dashboard />
           </Route>
-          <Route path="/">
+          <Route path="/home">
             <App />
           </Route>
-          {/* <Route path="/">
+          <Route path="/">
           
             <Landing />
-          </Route> */}
+          </Route>
           
         </Switch>
         </BrowserRouter>

@@ -1,17 +1,52 @@
-.shrbtn  *{
-margin: 0;
+.shrbtn {
+  margin: 0;
   background-color: transparent;
+  border: none;
+
 }
 
-.mediaButton{
-  width: 30px;
+.mediaButton {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  border: none;
+
 }
 
-.media{
+.media {
   display: flex;
+  flex-direction: row;
+  justify-content: left;
+  border: none;
+  background-color: transparent;
+  border: none;
+
+
+
 }
 
 
-.twitter{
+.twitterShare {
   width: 35px;
+  height: 38px;
+  margin: 0;
+  border: none;
+
+
+}
+
+.facebookShare {
+  width: 35px;
+  margin: 0;
+}
+
+button.Twitter{
+  background-color: transparent;
+  border: 0;
+}
+
+button.Faceboook{
+  background-color: transparent;
+  border: 0;
 }

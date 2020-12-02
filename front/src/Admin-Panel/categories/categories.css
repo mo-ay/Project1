@@ -1,4 +1,4 @@
-.gameCategories{
+.gameCategories {
   flex-direction: row;
   flex-wrap: wrap;
   column-count: 2;
@@ -6,30 +6,48 @@
 
 }
 
-.delete{
+.gameCategories li:nth-child(1) {
+  display: none;
+  background-color: red;
+}
+
+.delete {
   cursor: pointer;
 }
 
-.trash{
+.trash {
   width: 17px;
   height: 17px;
   float: right;
-  margin-right: 9rem;
-
+  margin: 0;
+  padding: 0;
+  margin-right: 7rem;
+  margin-top: 7px;
 }
 
-.searchText{
+.searchText {
   border-radius: 20px;
   width: 250px;
 }
 
-.submit{
+.submit {
   width: 100px;
   border-radius: 20px;
   background-color: transparent;
 }
 
-.myForm{
+.myForm {
   margin-top: 20px;
   margin-bottom: 20px;
 }
+
+/* li{
+  background-color: red;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+} */
+
+/* li{
+margin-top: 15px;
+} */

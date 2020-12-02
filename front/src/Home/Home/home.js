@@ -40,9 +40,7 @@ class Home extends Component {
   render() {
     return (
       <div className="mainBody">
-        <div className="particles">
-          <Particles />
-        </div>
+      
 
         <div className="mainHome">
           <div className="header">
@@ -133,6 +131,9 @@ class Home extends Component {
               ))}
             </div>
           </div>
+        </div>
+        <div className="particles">
+          <Particles />
         </div>
       </div>
     );

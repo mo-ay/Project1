@@ -3,15 +3,18 @@ body {
   height: 100vh;
   width: 100vw;
   font-size: 1.5rem;
+  background-color: transparent;
+  z-index: -1;
 }
 
 .space {
-  height: 28vh;
+  height: 25vh;
 }
 
 h1 {
   color: #ee3568;
-  margin-bottom: 0;
+  margin: auto;
+  margin-bottom: 20px;
   text-align: left;
   width: 210px;
 }
@@ -19,18 +22,16 @@ h1 {
 p {
   text-align: left;
   color: #ee3568;
+  font-size: 1.1em;
+  letter-spacing: 1px;
+  overflow-wrap: normal;
 }
 
 .parg {
-  margin: auto;
-  margin-left: auto;
+  margin: 0;
   width: 80%;
 }
 
-p {
-  font-size: 1.1em;
-  letter-spacing: 1px;
-}
 
 .landingContainer {
 
@@ -47,26 +48,37 @@ p {
 
 
 .leftTab {
-  text-align: center;
+
+  margin: auto;
+
 }
 
 .leftContainer {
-  padding: 0;
-  width: 50%;
-  float: right;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  margin-left: 40%;
+  text-align: center;
+  justify-content: right;
+  color: #ee3568;
+  font-weight: 500;
+
 }
+
 
 .rightTab .largeLogo {
   margin-top: 0;
-  width: 500px;
-  transform: rotate(360deg);
+  width: 480px;
+  transform: rotate(0);
   transition: all 1s;
   transform-origin: center;
   transition-delay: 0.2s;
-} 
+}
 
 .rightTab .largeLogo:hover {
-  transform: rotate(0deg);
+  transform: rotate(360deg);
 }
 
 .leftContainer>* {
@@ -85,11 +97,11 @@ p {
 .landingButton {
   position: relative;
   display: inline-block;
-  margin-top: 50px;
-  margin-bottom: 50px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   width: 200px;
   height: 50px;
-  line-height: 50px;
+  line-height: 45px;
   border-radius: 50px;
   border: 3px solid #ee3568;
   font-size: 18px;
@@ -146,26 +158,66 @@ a i:hover {
   transform: scale(1.2, 1.2);
 }
 
-canvas {
-  position: absolute;
-  display: inline;
-  top: 0;
-  z-index: 0;
-}
+
 
 /*! ---- particles.js container ---- */
 
-#particles-js {
+.particlesjs,
+#tsparticles {
   width: 100vw;
-  height: 100vh;
   background-color: transparent;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 0;
+  height: 100%;
+
 }
+
+canvas {
+  background-color: transparent;
+  z-index: -100;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+
 
 /*! ______________________*/
 
+.instagram,
+.facebook {
+  width: 30px;
+  margin: 10px;
+  background-color: #fff;
+}
+
+
+.instagram:hover,
+.facebook:hover {
+
+  transform: scale(1.1);
+}
+
+
+
+
+
+.socialMedia {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  position: relative;
+  justify-content: center;
+}
+
 svg {
   position: absolute;
-  top: 0;
+  top: -1px;
   transform: rotate(180deg);
   z-index: -1;
 }
@@ -180,7 +232,7 @@ svg {
   body {
     font-size: 1.3rem;
   }
-} 
+}
 
 @media screen and (max-width:1300px) {
   .rightTab .largeLogo {
@@ -207,7 +259,7 @@ svg {
     width: 100%;
     letter-spacing: 0;
     font-size: 1rem;
-  } 
+  }
 }
 
 @media screen and (max-width:600px) {
@@ -228,19 +280,10 @@ svg {
 
   .space {
     height: 7vh;
-  } 
-}
-
-@media screen and (max-width:5000px) {
-  .socialMedia { 
-    display: flex;
-    justify-content: flex-start;
-    padding-left: 75px;
-    flex-wrap: nowrap;
-    width: 100%;
   }
-
 }
+
+@media screen and (max-width:5000px) {}
 
 @media screen and (min-width:800px) {
   .rightTab .largeLogo {

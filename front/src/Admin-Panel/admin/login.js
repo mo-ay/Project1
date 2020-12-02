@@ -2,9 +2,11 @@ import React from 'react';
 import { Redirect } from 'react-router-dom';
 import "./login.css"
 import Particles from "react-particles-js";
+import logo from "../../indie_bite-01.png"
+
+
 
 class login extends React.Component{
-
 
     state ={
         autho: 0,
@@ -48,7 +50,7 @@ class login extends React.Component{
         }
         return(
             <div className="login">
-              <img src="../../indie_bite-01.png" />
+              <img src={logo} />
             <form onSubmit = {this.loginCheck} className="loginForm"><br></br>
                 
                 <input type="text" name ="adminName" placeholder="Username" className="field" />

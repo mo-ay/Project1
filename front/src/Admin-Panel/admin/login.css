@@ -123,11 +123,20 @@ h4,
 .particles-login {
   width: 100vw;
   background-color: transparent;
-  position: absolute;
+  position: fixed;
   left: 0;
   bottom: 0;
   z-index: -1;
   height: 100vh;
-  display: table;
 
+}
+
+canvas {
+  background-color: transparent;
+  z-index: -100;
+  position: fixed;
+  width: 100vw;
+  height: 100%;
+  left: 0;
+  top: 0;
 }

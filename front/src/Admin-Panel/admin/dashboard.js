@@ -362,7 +362,7 @@ class Dashboard extends Component {
                   min="0"
                 />
                 <input type="text" name="author" placeholder="Author" />
-                <input type="text" name="date" placeholder="2020-12-30" />
+                <input type="date" name="date" placeholder="2020-12-30" />
                 <input type="link" name="itchio" placeholder="link" />
                 <input type="file" name="imagepath" id="upload" />
 

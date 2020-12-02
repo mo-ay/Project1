@@ -1,20 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+html{
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
 
 body {
   justify-content: center; 
   height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 
+
 .mainBody {
-  position: absolute;
+  position: relative; ;
   background-color: #ee3568;
+  background-image: none;
   margin: 0;
   width: 100vw;
   justify-content: center;
   top: 0;
   left: 0;
-
+  z-index: 20;
 }
 
 .mainHome {
@@ -484,13 +493,13 @@ form {
 
 .particles {
   width: 100vw;
-  height: 130vh;
+  height: 100%;
   background-color: transparent;
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 0;
-  display: table;
+  z-index: -1;
+  
 }
 
 canvas {

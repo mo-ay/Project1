@@ -7,8 +7,7 @@ import './Admin-Panel/card/Style.css'
 //import Category from './components/categories/categories' 
 //import Card from './components/card/allCard';
 import Home from '../src/Home/Home/home'
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import Page from '../src/Description-Page/page'
+  import Page from '../src/Description-Page/page'
 
 class App extends Component {
   state={

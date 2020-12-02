@@ -4,7 +4,7 @@
 .body {
   margin: auto;
   width: 80vw;
-  position: relative;
+  position: absolute;
 
 }
 

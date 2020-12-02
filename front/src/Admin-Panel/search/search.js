@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "./search.css";
 import logo from "../../indie_bite-01.png";
 import searchicon from "../../search.png"
