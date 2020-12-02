@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
 
 body {
-  justify-content: center;
+  justify-content: center; 
+  height: 100%;
 }
 
 
@@ -483,15 +484,16 @@ form {
 
 .particles {
   width: 100vw;
+  height: 130vh;
   background-color: transparent;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 0;
+  display: table;
 }
 
 canvas {
-  background-color: transparent;
   z-index: -100;
   position: fixed;
 }

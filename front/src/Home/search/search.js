@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./search.css";
 import "./w3.css";
 import logo from "./indie_bite-01.svg"
+import searchicon from "../../search.png"
 //  import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 class Search extends Component {
@@ -42,7 +43,7 @@ class Search extends Component {
               placeholder="What are you looking for?"
             />
             <button type="submit" name="submit" className="searchButton">
-              <i className="fa fa-search"></i>
+            <img src={searchicon} className="searchIcon"/>
             </button>
           </form>
         </div>

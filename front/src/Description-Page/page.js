@@ -43,7 +43,7 @@ class CardSelected extends Component {
   render() {
     return (
       <div className="main">
-        <div className="particles">
+        <div className="particlesDescription">
           <Particles />
         </div>
 
