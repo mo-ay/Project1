@@ -125,6 +125,9 @@ let upload = multer({ storage: storage, fileFilter: helpers.imageFilter }).singl
         })
         //res.send(`You have uploaded this image: <hr/><img src="${req.file}" width="500"><hr /><a href="./">Upload another image</a>`);
       });
+
+
+     // db.query('INSERT INTO gamecategorys ')
 });
 
  //-----------------------------------------------------------------//

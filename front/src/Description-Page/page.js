@@ -60,7 +60,7 @@ class CardSelected extends Component {
                       <ul>
                         <li>Author: {g.author}</li>
                         <li>Game Review: {g.rate}/10</li>
-                        <li>Posted On: {g.date}</li>
+                        <li>Posted On: {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(g.date))) }</li>
                         <li>  &nbsp;</li>
                         <li>
                           {" "}
