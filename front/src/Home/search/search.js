@@ -30,11 +30,11 @@ class Search extends Component {
     return (
       <div className="Search">
         <div className="search2">
-          <img
+          <a href="/"><img
             src={logo}
             alt="Indie Bite"
             className="logo"
-          />
+          /></a>
           <form onSubmit={this.searchFunction}>
             <input
               type="text"
