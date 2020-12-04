@@ -76,6 +76,7 @@ class Card extends Component {
                     Read More
                   </button>
 
+                  <br></br>
                   
                     <span className="myTrash"
                       onClick={async () =>{
@@ -91,7 +92,6 @@ class Card extends Component {
                         }}> 
                       
                       <img  src={trash} className="myTrash"/>
-                      
                     </span>
                     
                   {/* <input type="submit" name="submit" value={g.id} /> */}

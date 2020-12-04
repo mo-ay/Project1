@@ -175,6 +175,7 @@
   transition: 0.7s;
   font-weight: bold;
   margin-top: 20px;
+  cursor: pointer;
 
 }
 
@@ -373,14 +374,10 @@
   height: 30px;
 border-radius: 0;
 
-}
+} 
 
-.card .info span{
-  z-index: 1;
+.card .info .myTrash{
+ margin-top: 20px;
   cursor: pointer;
-  position: absolute;
-  top:-120px;
-  right:100px;
-  font-weight: bolder;
-  margin:10px
+  position: relative;
 }
