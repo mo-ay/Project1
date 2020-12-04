@@ -23,20 +23,20 @@ class Home extends Component {
     this.setState({games:result})
     this.setState({ gamesByRate: result });
     const sorting = this.state.gamesByRate.sort((a, b) => (a.rate > b.rate ? -1 : 1));
-    console.log(this.state.gamesByRate);
+    //console.log(this.state.gamesByRate);
 
-    this.setState({ gamesByDate: result });
+    await this.setState({ gamesByDate: this.state.games });
     const sortingDate = this.state.gamesByDate.sort((x, y) =>
-      x.date > y.date ? -1 : 1
+      (x.date > y.date ? 1 : -1)
     );
-    console.log(this.state.gamesByDate);
-    console.log(this.state.games);
+    //console.log(this.state.gamesByDate);
+   // console.log(this.state.games);
   }
    filter=(games)=>{
     console.log("games",games);
     this.setState({games})
   }
-  
+
   render() {
     return (
       <div className="mainBody">

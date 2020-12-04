@@ -145,6 +145,8 @@ class Dashboard extends Component {
 
       body: form,
     });
+    const test=await response.json() 
+    console.log(test)
     const result = await response.status;
 
     alert(result);

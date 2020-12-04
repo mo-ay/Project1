@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./Style.css";
 import trash from "../../trash.png"
 //import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import { Confirm } from 'react-st-modal';
 
 class Card extends Component {
   state = {
@@ -71,16 +72,30 @@ class Card extends Component {
                     onClick={(event) =>
                       (window.location.href = `./description/${g.id}`)
                     }
-                  >
+                  > 
                     Read More
                   </button>
-                    <span className="myTrash"
-                      onClick={() => this.removeGame(g.id)}
-                    >
-                      <img className="myTrashs" src={trash}/>
-                    </span>
-                  {/* <input type="submit" name="submit" value={g.id} /> */}
 
+                  
+                    <span className="myTrash"
+                      onClick={async () =>{
+                        const isConfirm = await Confirm(
+                          'You cannot undo this action',
+                          'Are you sure you want to delete the Game?'
+                        );
+                        if (isConfirm) {
+                         
+                          this.removeGame(g.id)
+                        }
+                        
+                        }}> 
+                      
+                      <img  src={trash} className="myTrash"/>
+                      
+                    </span>
+                    
+                  {/* <input type="submit" name="submit" value={g.id} /> */}
+                  
                   <div className="gameName">
                     <h5>{g.name}</h5>
                   </div>
