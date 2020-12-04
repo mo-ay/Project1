@@ -6,6 +6,7 @@ import trash from "../../trash.png"
 //import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { Confirm } from 'react-st-modal';
 
+import searchicon from "../../search.png";
 
 class Search extends Component {
   state = {
@@ -57,7 +58,10 @@ class Search extends Component {
     return (
       <div className="Search dashSearch">
         <div className="searchHead">
-          <img src={logo} alt="Indie Bite" className="logo" />
+          <a href="/">
+            {" "}
+            <img src={logo} alt="Indie Bite" className="logo" />{" "}
+          </a>{" "}
           <form onSubmit={this.searchFunction} className="headerForm">
             <input
               type="text"
@@ -66,7 +70,7 @@ class Search extends Component {
               placeholder="What are you looking for?"
             />
             <button type="submit" name="submit" className="searchButton">
-            <img src={searchicon} className="searchIcon"/>
+              <img src={searchicon} className="searchIcon" />
             </button>
           </form>
         </div>
