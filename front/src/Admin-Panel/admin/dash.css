@@ -12,6 +12,16 @@
   display: block;
 }
 
+.mySelection {
+  height: 30px;
+  width: 250px;
+  border-radius: 20px;
+  border: 2px solid #ee3568;
+  background-color: #FFF;
+  padding-left: 10px;
+}
+
+
 
 .myBlogs {
   width: 49vw;
@@ -58,17 +68,18 @@
 .subForm input:not(.submitButton) {
   height: 30px;
   width: 250px;
-border-radius: 10px;
+  border-radius: 10px;
 
 }
 
 ::-webkit-input-placeholder {
   padding-left: 5px;
 }
-::-webkit-file-upload-button{
-border-radius: 50px;
-border: 2px solid #ee3568;
-background-color: transparent;
+
+::-webkit-file-upload-button {
+  border-radius: 50px;
+  border: 2px solid #ee3568;
+  background-color: transparent;
 }
 
 .blogs {
@@ -308,5 +319,3 @@ footer a {
   width: 66vw;
 
 }
-
-

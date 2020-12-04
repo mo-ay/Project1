@@ -6,7 +6,6 @@ import trash from "../../trash.png"
 //import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { Confirm } from 'react-st-modal';
 
-import searchicon from "../../search.png";
 
 class Search extends Component {
   state = {

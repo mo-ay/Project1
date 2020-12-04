@@ -31,6 +31,8 @@ body .main {
   border: none;
   height: max-content;
   z-index: 2;
+  display: table;
+  font-size: 0.78em;
 }
 
 .cover {

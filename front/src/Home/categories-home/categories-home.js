@@ -87,7 +87,7 @@ class Category extends Component{
 
                    <div className="allBlogsTop homeCategories">
                        <h2 className="allBlogsHeading">All Blogs:</h2>
-                        <select onChange={this.filterGame} name="" id="selection">{this.state.category.map(cat=> 
+                        <select onChange={this.filterGame} name="" id="selection" className="mySelection">{this.state.category.map(cat=> 
                           <option  key={cat.id} value={cat.id} >{cat.categories}</option>)}
                         </select>
                      </div>

@@ -1,11 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
 
 .allBlogsTop {
-  margin: 55px 0 5px 70px;
+  margin: 50px 0 5px 70px;
   display: flex;
+  justify-content: flex-start;
   flex-direction: row;
-  padding: 10px;
 
+
+}
+.allBlogsHeading{
+  margin: 10px;
+  background-color: #FFF;
+}
+
+#selection{
+  margin: auto 0;
+  padding: 2px;
+  height: 35px;
+  width: 200px;
+  border-radius: 20px;
+  border: 2px solid #ee3568;
+  background-color: #FFF;
+  padding-left: 10px;
 }
 
 h2{
@@ -17,11 +33,11 @@ h2{
 .inner {
   display: flex;
   flex-wrap: wrap;
-  margin: auto;
+  margin: 0 auto;
   width: 95%;
 }
 
-#selection {
+/* #selection {
   width: 200px;
   height: 30px;
   line-height: 50px;
@@ -30,10 +46,20 @@ h2{
   color: #808080;
   border-radius: 10px;
   margin: auto;
-  margin-left: 15px;
+  margin-left: 15px; 
 
+} */
 
-}
+/* .mySelection {
+  height: 35px;
+  width: 200px;
+  border-radius: 20px;
+  border: 2px solid #ee3568;
+  background-color: #FFF;
+  padding-left: 100px;
+
+} */
+
 
 select:focus {
   outline: none;

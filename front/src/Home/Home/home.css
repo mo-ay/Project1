@@ -262,7 +262,7 @@ form {
   padding: 7px;
   transition: 0.7s;
   font-weight: bold;
-  margin-top: 20px;
+  margin-top: 10px;
 
 }
 
@@ -505,4 +505,12 @@ form {
 canvas {
   z-index: -100;
   position: fixed;
+}
+
+.allCards .info{
+  margin-bottom: 50px;
+}
+
+.filteredCards .info{
+  margin-bottom: 35px;
 }
