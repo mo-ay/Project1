@@ -129,7 +129,6 @@ let upload = multer({ storage: storage, fileFilter: helpers.imageFilter }).singl
 
      // db.query('INSERT INTO gamecategorys ')
 });
-
  //-----------------------------------------------------------------//
  //                 Remove Game -- Tested on POSTMAN                //
  //-----------------------------------------------------------------//

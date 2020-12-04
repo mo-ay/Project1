@@ -50,7 +50,7 @@ class Search extends Component {
         <div className="cardContainer" style={{ boxShadow: "none" }}>
           {this.state.game.map((g) => (
             <div key={g.id} className="card">
-              <img src={g.magepath} />
+              <img src={g.imagepath} />
               <div className="info">
                 <h5>{g.name}</h5>
                 <h5> Rating: {g.rate}</h5>

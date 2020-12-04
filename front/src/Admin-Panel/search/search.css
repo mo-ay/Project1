@@ -39,3 +39,18 @@
 .dashSearch form{
   margin: auto;
 }
+.card .info .myTrash img {
+  width: 30px;
+  height: 30px;
+border-radius: 0;
+
+} 
+
+.card .info .myTrash{
+ 
+  cursor: pointer;
+  position: absolute;
+  top:-40px;
+  right:0px;
+  font-weight: bolder;
+}
